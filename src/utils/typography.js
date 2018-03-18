@@ -6,7 +6,6 @@ const theme = require("typography-theme-de-young").default
 
 theme.baseLineHeight = 1.4
 theme.blockMarginBottom = 0.75
-/*
 theme.overrideThemeStyles = ({ rhythm }) => ({
   "blockquote > h1, blockquote > h2, blockquote > h3, blockquote > h4": {
     marginTop: 0,
@@ -18,13 +17,12 @@ theme.overrideThemeStyles = ({ rhythm }) => ({
     fontSize: "75%",
   },
   "tt,code": {
-    fontSize: "85%",
+    fontSize: "80%",
   },
   pre: {
     lineHeight: 1.22,
   },
 })
-*/
 
 const typography = new Typography(theme)
 
