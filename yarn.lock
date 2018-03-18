@@ -2322,7 +2322,7 @@ create-hmac@^1.1.0, create-hmac@^1.1.2, create-hmac@^1.1.4:
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
 
-create-react-class@^15.5.1, create-react-class@^15.5.2, create-react-class@^15.6.0, create-react-class@^15.6.3:
+create-react-class@^15.5.1, create-react-class@^15.5.2, create-react-class@^15.6.0:
   version "15.6.3"
   resolved "https://registry.yarnpkg.com/create-react-class/-/create-react-class-15.6.3.tgz#2d73237fb3f970ae6ebe011a9e66f46dbca80036"
   dependencies:
@@ -3989,6 +3989,14 @@ gatsby-plugin-sitemap@^1.2.14:
     babel-runtime "^6.26.0"
     sitemap "^1.12.0"
 
+gatsby-plugin-typography@^1.7.18:
+  version "1.7.18"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-typography/-/gatsby-plugin-typography-1.7.18.tgz#391f300afae465d3aa384d6630ce9df172eba3b8"
+  dependencies:
+    babel-runtime "^6.26.0"
+    react-typography "^0.16.1"
+    typography "^0.16.0"
+
 gatsby-react-router-scroll@^1.0.13:
   version "1.0.13"
   resolved "https://registry.yarnpkg.com/gatsby-react-router-scroll/-/gatsby-react-router-scroll-1.0.13.tgz#d1cfd43c334497ad174ae9409c24bb5d4dcda3aa"
@@ -4004,6 +4012,19 @@ gatsby-remark-autolink-headers@^1.4.13:
     babel-runtime "^6.26.0"
     github-slugger "^1.1.1"
     mdast-util-to-string "^1.0.2"
+    unist-util-visit "^1.1.1"
+
+gatsby-remark-copy-linked-files@^1.5.30:
+  version "1.5.30"
+  resolved "https://registry.yarnpkg.com/gatsby-remark-copy-linked-files/-/gatsby-remark-copy-linked-files-1.5.30.tgz#5834fb6d4a8a50c58e7e91309bd0af396474dd29"
+  dependencies:
+    babel-runtime "^6.26.0"
+    cheerio "^1.0.0-rc.2"
+    fs-extra "^4.0.1"
+    is-relative-url "^2.0.0"
+    lodash "^4.17.4"
+    path-is-inside "^1.0.2"
+    probe-image-size "^3.2.0"
     unist-util-visit "^1.1.1"
 
 gatsby-remark-embed-video@^1.0.2:
@@ -4043,6 +4064,15 @@ gatsby-remark-responsive-iframe@^1.4.18:
     bluebird "^3.5.0"
     cheerio "^1.0.0-rc.2"
     lodash "^4.17.4"
+    unist-util-visit "^1.1.1"
+
+gatsby-remark-smartypants@^1.4.12:
+  version "1.4.12"
+  resolved "https://registry.yarnpkg.com/gatsby-remark-smartypants/-/gatsby-remark-smartypants-1.4.12.tgz#d783518b8bf0943aa78def717fdf2e9b9f893552"
+  dependencies:
+    babel-runtime "^6.26.0"
+    retext "^4.0.0"
+    retext-smartypants "^2.0.0"
     unist-util-visit "^1.1.1"
 
 gatsby-source-filesystem@^1.5.5:
@@ -7492,6 +7522,14 @@ parse-json@^2.1.0, parse-json@^2.2.0:
   dependencies:
     error-ex "^1.2.0"
 
+parse-latin@^3.1.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/parse-latin/-/parse-latin-3.2.0.tgz#cfe4b420982b1d20fc16c71dfb33f148de4f1d0b"
+  dependencies:
+    nlcst-to-string "^2.0.0"
+    unist-util-modify-children "^1.0.0"
+    unist-util-visit-children "^1.0.0"
+
 parse-latin@^4.0.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/parse-latin/-/parse-latin-4.1.0.tgz#f560d46cab1cf04d632815443485a8b3b31e31a7"
@@ -7568,7 +7606,7 @@ path-is-absolute@^1.0.0, path-is-absolute@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/path-is-absolute/-/path-is-absolute-1.0.1.tgz#174b9268735534ffbc7ace6bf53a5a9e1b5c5f5f"
 
-path-is-inside@1.0.2, path-is-inside@^1.0.1:
+path-is-inside@1.0.2, path-is-inside@^1.0.1, path-is-inside@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/path-is-inside/-/path-is-inside-1.0.2.tgz#365417dede44430d1c11af61027facf074bdfc53"
 
@@ -8776,7 +8814,7 @@ react-twitter-widgets@^1.7.1:
     prop-types "^15.3.0"
     scriptjs "^2.5.8"
 
-react-typography@^0.16.13:
+react-typography@^0.16.1:
   version "0.16.13"
   resolved "https://registry.yarnpkg.com/react-typography/-/react-typography-0.16.13.tgz#94bdd2a9448823bc74d8ebf7465d86c7dbe20dcf"
 
@@ -9409,6 +9447,34 @@ retext-english@^3.0.0:
   dependencies:
     parse-english "^4.0.0"
     unherit "^1.0.4"
+
+retext-latin@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/retext-latin/-/retext-latin-1.0.0.tgz#57f41257b4d857b6c6df631ca5788d10080d7051"
+  dependencies:
+    parse-latin "^3.1.0"
+    unherit "^1.0.4"
+
+retext-smartypants@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/retext-smartypants/-/retext-smartypants-2.0.0.tgz#390897c500cbcb959b83a0772609e174b1dcf44c"
+  dependencies:
+    nlcst-to-string "^2.0.0"
+    unist-util-visit "^1.0.0"
+
+retext-stringify@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/retext-stringify/-/retext-stringify-1.0.0.tgz#0032e4be3254ea56b19242ef406515479a3346a9"
+  dependencies:
+    nlcst-to-string "^2.0.0"
+
+retext@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/retext/-/retext-4.0.0.tgz#db12d45fe758530175f779176a112f5f73d22638"
+  dependencies:
+    retext-latin "^1.0.0"
+    retext-stringify "^1.0.0"
+    unified "^5.0.0"
 
 retry@^0.10.0:
   version "0.10.1"
@@ -10840,7 +10906,7 @@ typography-theme-de-young@^0.16.9:
     gray-percentage "^2.0.0"
     typography-breakpoint-constants "^0.15.10"
 
-typography@^0.16.6:
+typography@^0.16.0, typography@^0.16.6:
   version "0.16.6"
   resolved "https://registry.yarnpkg.com/typography/-/typography-0.16.6.tgz#8eeb6a3f10a97fd08025132bb50272104ae72aa3"
   dependencies:
@@ -10912,6 +10978,19 @@ unherit@^1.0.4:
   dependencies:
     inherits "^2.0.1"
     xtend "^4.0.1"
+
+unified@^5.0.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/unified/-/unified-5.1.0.tgz#61268da9b91ce925be1f3d198c0278b0e9716094"
+  dependencies:
+    bail "^1.0.0"
+    extend "^3.0.0"
+    has "^1.0.1"
+    is-buffer "^1.1.4"
+    once "^1.3.3"
+    trough "^1.0.0"
+    vfile "^2.0.0"
+    x-is-string "^0.1.0"
 
 unified@^6.0.0, unified@^6.1.4, unified@^6.1.5:
   version "6.1.6"

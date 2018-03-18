@@ -38,6 +38,8 @@ module.exports = {
         plugins: [
           'gatsby-remark-prismjs',
           'gatsby-remark-autolink-headers',
+          "gatsby-remark-copy-linked-files",
+          `gatsby-remark-smartypants`,
           {
             resolve: 'gatsby-remark-embed-video',
             options: {
@@ -46,9 +48,25 @@ module.exports = {
               // height: 400 // Optional: Overrides optional.ratio
             },
           },
-          // 'gatsby-remark-embed-video',
-          'gatsby-remark-responsive-iframe',
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 590,
+            },
+          },
+          {
+            resolve: `gatsby-remark-responsive-iframe`,
+            options: {
+              wrapperStyle: `margin-bottom: 1.0725rem`,
+            },
+          },
         ],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-typography`,
+      options: {
+        pathToConfigModule: `src/utils/typography.js`,
       },
     },
     {
