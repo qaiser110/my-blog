@@ -16,9 +16,16 @@ const TemplateWrapper = ({ children }) => (
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href={favicon} />
     </Helmet>
-    <Navbar />
-    <div>{children()}</div>
-    <Footer config={config} />
+    <div
+      style={{
+        maxWidth: rhythm(24),
+        padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
+      }}
+    >
+      <Navbar />
+      <div>{children()}</div>
+      <Footer config={config} />
+    </div>
   </div>
 )
 

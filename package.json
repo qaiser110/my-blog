@@ -30,6 +30,7 @@
     "react": "^16.2.0",
     "react-helmet": "^5.2.0",
     "react-load-script": "0.0.6",
+    "react-responsive-grid": "^0.3.4",
     "react-share": "^2.0.0",
     "react-twitter-widgets": "^1.7.1",
     "typography": "^0.16.6",
