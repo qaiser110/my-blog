@@ -7,6 +7,7 @@ import Footer from '../components/Footer/Footer'
 import config from '../../data/SiteConfig'
 import favicon from './favicon.png'
 import './all.sass'
+const {rhythm, scale} = require("../utils/typography")
 
 const TemplateWrapper = ({ children }) => (
   <div>
@@ -18,8 +19,9 @@ const TemplateWrapper = ({ children }) => (
     </Helmet>
     <div
       style={{
-        maxWidth: rhythm(24),
         padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
+        maxWidth: rhythm(22),
+        margin: `0 auto`,
       }}
     >
       <Navbar />
