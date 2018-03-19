@@ -6,8 +6,8 @@ import { rhythm, scale } from '../utils/typography'
 
 const CatLink = ({ category }) => (
   <span className="cat-link">
-    {' in '}
-    <Link to={`/categories/${category}`}>{categories[category]}</Link>
+    <span className='dim'>{' in '}</span>
+    <Link to={`/categories/${category}`} className='dim-link'>{categories[category]}</Link>
   </span>
 )
 
@@ -17,8 +17,9 @@ export default ({ post, showCat }) => (
       <h2
         style={{
           ...scale(1 / 3),
-          marginTop: rhythm(1.5),
+          marginTop: rhythm(1.8),
           lineHeight: 1.22,
+          color: '#ff4400'
         }}
       >
         {post.frontmatter.title}
@@ -28,21 +29,26 @@ export default ({ post, showCat }) => (
       style={{
         ...scale(-1 / 4),
         lineHeight: 1,
-        fontWeight: 100,
       }}
     >
       <i>
-        posted {post.frontmatter.date}{' '}
+        <span className='dim'>posted {post.frontmatter.date}{' '}</span>
         {showCat && <CatLink category={post.frontmatter.category} />}
       </i>
     </p>
     <div>
       {post.excerpt}
-      <br />
-      <br />
-      <PostTags tags={post.frontmatter.tags} />
-      <br />
-      <Link to={post.frontmatter.path}>Keep Reading →</Link>
+      <div
+        style={{
+          ...scale(-1 / 5),
+          display: 'block',
+          marginTop: rhythm(.4),
+          lineHeight: 3,
+        }}
+      >
+        <em><PostTags tags={post.frontmatter.tags} /></em>
+        <h6><em><Link to={post.frontmatter.path} className='dim-link'>Read more...</Link></em></h6>
+      </div>
     </div>
   </div>
 )

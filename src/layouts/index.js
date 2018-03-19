@@ -20,7 +20,7 @@ const TemplateWrapper = ({ children }) => (
     <div
       style={{
         padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
-        maxWidth: rhythm(22),
+        maxWidth: rhythm(24),
         margin: `0 auto`,
       }}
     >
