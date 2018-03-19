@@ -2,7 +2,7 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import PostListing from '../components/PostListing'
 import config from '../../data/SiteConfig'
-import { categories } from '../../data'
+import { catInfo } from '../../data'
 
 export default class CategoryTemplate extends React.Component {
   render() {
@@ -10,14 +10,14 @@ export default class CategoryTemplate extends React.Component {
     return (
       <section className="section">
         <Helmet
-          title={`Posts in category "${categories[category]}" | ${
+          title={`Posts in category "${catInfo[category]}" | ${
             config.siteTitle
           }`}
         />
         <div className="container">
           <div className="content">
             <h1>
-              Category: <i>{categories[category]}</i>
+              Category: <i>{catInfo[category]}</i>
             </h1>
             {this.props.data.allMarkdownRemark.edges.map(({ node }, key) => (
               <PostListing key={key} post={node} />

@@ -1,13 +1,13 @@
 import React from 'react'
 import Link from 'gatsby-link'
-import { categories } from '../../data'
+import { catInfo } from '../../data'
 import PostTags from './PostTags'
 import { rhythm, scale } from '../utils/typography'
 
 const CatLink = ({ category }) => (
   <span className="cat-link">
     <span className='dim'>{' in '}</span>
-    <Link to={`/categories/${category}`} className='dim-link'>{categories[category]}</Link>
+    <Link to={`/categories/${category}`} className='dim-link'>{catInfo[category]}</Link>
   </span>
 )
 

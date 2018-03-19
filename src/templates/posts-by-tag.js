@@ -2,7 +2,7 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import PostListing from '../components/PostListing'
 import config from '../../data/SiteConfig'
-import { tags } from '../../data'
+import { tagInfo } from '../../data'
 
 export default class CategoryTemplate extends React.Component {
   render() {
@@ -10,12 +10,12 @@ export default class CategoryTemplate extends React.Component {
     return (
       <section className="section">
         <Helmet
-          title={`Posts tagged "${tags[tag].title}" | ${config.siteTitle}`}
+          title={`Posts tagged "${tagInfo[tag].title}" | ${config.siteTitle}`}
         />
         <div className="container">
           <div className="content">
             <h1>
-              Posts tagged "<i>{tags[tag].title}</i>"
+              Posts tagged "<i>{tagInfo[tag].title}</i>"
             </h1>
           </div>
           {this.props.data.allMarkdownRemark.edges.map(({ node }, key) => (

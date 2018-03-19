@@ -1,11 +1,11 @@
-const categories = {
+const catInfo = {
   scaa: 'SCAA',
   'home-made': 'Home Made',
   history: 'History',
   technology: 'Technology',
 }
 
-const tags = {
+const tagInfo = {
   programming: {
     title: 'Programming',
     score: 5,
@@ -25,6 +25,6 @@ const tags = {
 }
 
 module.exports = {
-  categories,
-  tags,
+  catInfo,
+  tagInfo,
 }

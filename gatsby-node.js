@@ -1,5 +1,7 @@
+const _ = require("lodash")
 const path = require('path')
-const { tags } = require('./data/index.js')
+const { tagInfo } = require('./data/index.js')
+const webpackLodashPlugin = require("lodash-webpack-plugin")
 
 exports.createPages = ({ boundActionCreators, graphql }) => {
   const { createPage } = boundActionCreators
@@ -90,7 +92,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
 
       if (node.frontmatter.tags)
         node.frontmatter.tags.forEach(tag => {
-          if (!tags[tag]) {
+          if (!tagInfo[tag]) {
             const err = `Tag "${tag}" used in "${
               node.frontmatter.path
             }" doesn't exist in "data/index.js"

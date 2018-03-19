@@ -37,7 +37,7 @@ export const BlogPostTemplate = ({
             <h1 className="title">{title}</h1>
             in{' '}
             <Link className="cat-link" to={`/categories/${category}`}>
-              {categories[category]}
+              {catInfo[category]}
             </Link>
             <br />
             <br />
