@@ -6,23 +6,9 @@ import logo from '../img/logo.svg'
 
 const Navbar = () => (
   <nav className="navbar">
-    <div className="container">
-      <div className="navbar-brand">
-        <Link to="/" className="navbar-item">
-          <figure className="image">
-            <img src={logo} alt="Qaiser Abbas" style={{ width: '88px' }} />
-          </figure>
-        </Link>
-      </div>
-      <div className="navbar-start">
-        <Link className="navbar-item" to="/about">
-          About
-        </Link>
-        <Link className="navbar-item" to="/products">
-          Products
-        </Link>
-      </div>
-    </div>
+    <a href="">Home</a>
+    <a href="">About</a>
+    <a href="">Contact</a>
   </nav>
 )
 

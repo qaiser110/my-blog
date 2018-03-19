@@ -17,6 +17,7 @@ const TemplateWrapper = ({ children }) => (
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href={favicon} />
     </Helmet>
+    <Navbar />
     <div
       style={{
         padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
@@ -24,7 +25,6 @@ const TemplateWrapper = ({ children }) => (
         margin: `0 auto`,
       }}
     >
-      <Navbar />
       <div>{children()}</div>
       <Footer config={config} />
     </div>
