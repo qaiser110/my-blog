@@ -1,6 +1,7 @@
 ---
 templateKey: blog-post
 path: /jamaica-blue
+draft: true
 title: 'Just in: small batch of Jamaican Blue Mountain in store next week'
 date: 2017-01-04T15:04:10.000Z
 description: >-
