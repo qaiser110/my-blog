@@ -97,12 +97,11 @@ module.exports = {
       }`,
       },
     },
+    `gatsby-plugin-sharp`,
     {
-      resolve: `gatsby-plugin-google-tagmanager`,
+      resolve: `gatsby-plugin-google-analytics`,
       options: {
-        id: 'GTM-53JKHV5',
-        // Include GTM in development.
-        // Defaults to false meaning GTM will only be loaded in production.
+        trackingId: `UA-114992245-1`,
         includeInDevelopment: false,
       },
     },
@@ -202,11 +201,12 @@ module.exports = {
     {
       resolve: "gatsby-plugin-manifest",
       options: {
-        name: "Bricolage",
-        short_name: "Bricolage",
-        start_url: "/",
-        background_color: "white",
-        theme_color: "white",
+        name: config.siteTitle,
+        short_name: config.siteTitle,
+        description: config.siteDescription,
+        start_url: config.pathPrefix,
+        background_color: config.backgroundColor,
+        theme_color: config.themeColor,
         display: "minimal-ui",
         icons: [
           {
