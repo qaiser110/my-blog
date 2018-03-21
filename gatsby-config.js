@@ -199,5 +199,29 @@ module.exports = {
         ],
       },
     },
+    {
+      resolve: "gatsby-plugin-manifest",
+      options: {
+        name: "Bricolage",
+        short_name: "Bricolage",
+        start_url: "/",
+        background_color: "white",
+        theme_color: "white",
+        display: "minimal-ui",
+        icons: [
+          {
+            src: "/logos/logo-1024.png",
+            sizes: "1024x1024",
+            type: "image/png"
+          },
+          {
+            src: "/logos/logo-512.png",
+            sizes: "512x512",
+            type: "image/png"
+          }
+        ]
+      }
+    },
+    "gatsby-plugin-offline",
   ],
 }
