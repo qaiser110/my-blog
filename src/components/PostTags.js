@@ -7,6 +7,7 @@ export default ({ tags }) => {
   if (!tags) return null
 
   const tagSection = tags.map((tag, i) => {
+    if (!tagInfo[tag]) return null
     const dividerStr = i < tags.length - 1 && <span>{' | '}</span>
     return (
       <span key={tag} className='dim-link'>

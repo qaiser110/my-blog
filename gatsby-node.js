@@ -1,7 +1,7 @@
-const _ = require("lodash")
+// const _ = require("lodash")
+// const webpackLodashPlugin = require("lodash-webpack-plugin")
 const path = require('path')
 const { tagInfo } = require('./data/index.js')
-const webpackLodashPlugin = require("lodash-webpack-plugin")
 
 exports.createPages = ({ boundActionCreators, graphql }) => {
   const { createPage } = boundActionCreators
@@ -13,6 +13,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
       allMarkdownRemark(
         sort: { order: DESC, fields: [frontmatter___date] }
         limit: 1000
+        filter: { frontmatter: { draft: { ne: true } } }
       ) {
         edges {
           node {
@@ -96,7 +97,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
             const err = `Tag "${tag}" used in "${
               node.frontmatter.path
             }" doesn't exist in "data/index.js"
-Allowed values are: ${Object.keys(tags).join(', ')}
+Allowed values are: ${Object.keys(tagInfo).join(', ')}
 `
             throw new Error(err)
           }

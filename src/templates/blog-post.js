@@ -104,7 +104,7 @@ export const pageQuery = graphql`
       }
     }
     chapters: allMarkdownRemark(
-      filter: { frontmatter: { series: { eq: $series } } }
+      filter: { frontmatter: { series: { eq: $series }, draft: { ne: true } } }
     ) {
       edges {
         node {

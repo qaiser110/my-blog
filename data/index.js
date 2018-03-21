@@ -18,6 +18,10 @@ const tagInfo = {
     title: 'stuff',
     score: 1,
   },
+  technology: {
+    title: 'Technology',
+    score: 3,
+  },
   miscellaneous: {
     title: 'Miscellaneous',
     score: 3,

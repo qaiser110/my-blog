@@ -11,6 +11,7 @@ description: >-
 category: home-made
 tags:
     - programming
+    - technology
     - testing
 hashtags:
     - programming
