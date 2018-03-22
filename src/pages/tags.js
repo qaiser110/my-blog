@@ -10,7 +10,7 @@ class TagsPageRoute extends React.Component {
     const allTags = this.props.data.allMarkdownRemark.group
     return (
       <div>
-        <Helmet title={siteTitle} />
+        <Helmet title={siteTitle + ' | tags'} />
         <div>
           <h1>Tags</h1>
           <ul>

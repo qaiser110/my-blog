@@ -1,5 +1,6 @@
 import React from 'react'
 import Helmet from 'react-helmet'
+import Link from "gatsby-link"
 import PostListing from '../components/PostListing'
 import config from '../../data/SiteConfig'
 import { tagInfo } from '../../data'
@@ -17,10 +18,11 @@ export default class CategoryTemplate extends React.Component {
             <h1>
               Posts tagged "<i>{tagInfo[tag].title}</i>"
             </h1>
+            {this.props.data.allMarkdownRemark.edges.map(({ node }, key) => (
+              <PostListing key={key} post={node} />
+            ))}
+            <div><Link to="/categories">View all tags</Link></div>
           </div>
-          {this.props.data.allMarkdownRemark.edges.map(({ node }, key) => (
-            <PostListing key={key} post={node} />
-          ))}
         </div>
       </section>
     )

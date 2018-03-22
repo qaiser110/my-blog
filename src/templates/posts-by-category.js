@@ -1,5 +1,6 @@
 import React from 'react'
 import Helmet from 'react-helmet'
+import Link from "gatsby-link"
 import PostListing from '../components/PostListing'
 import config from '../../data/SiteConfig'
 import { catInfo } from '../../data'
@@ -23,6 +24,7 @@ export default class CategoryTemplate extends React.Component {
               <PostListing key={key} post={node} />
             ))}
           </div>
+          <div><Link to="/categories">View all categories</Link></div>
         </div>
       </section>
     )
