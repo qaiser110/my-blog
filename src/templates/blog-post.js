@@ -28,24 +28,25 @@ export const BlogPostTemplate = ({
       {helmet || ''}
       <SEO postSEO postPath={path} postNode={post} coverImage={smallImage} />
       <div className="container content">
-        <div className="columns">
-          {isSeries && (
-            <Chapters series={series} chapters={chapters} currPath={path} />
-          )}
-          <div>
-            <h1 className="title">{title}</h1>
-            {category && <span>in <Link className="cat-link" to={`/categories/${category}`}>
+        <h1 className="title">{title}</h1>
+        {category && (
+          <span>
+            in{' '}
+            <Link className="cat-link" to={`/categories/${category}`}>
               {catInfo[category]}
-            </Link></span>}
-            <Img sizes={imageSharp.sizes} alt={`Image for "${title}"`} />
-            <p>{description}</p>
-            <PostContent content={post.html} />
-            <div className="post-meta">
-              <SocialLinks postPath={path} postNode={post} />
-              <br />
-              <PostTags tags={tags} />
-            </div>
-          </div>
+            </Link>
+          </span>
+        )}
+        <Img className="cover-img" sizes={imageSharp.sizes} alt={`Image for "${title}"`} />
+        <p>{description}</p>
+        {isSeries && (
+          <Chapters series={series} chapters={chapters} currPath={path} />
+        )}
+        <PostContent content={post.html} />
+        <div className="post-meta">
+          <SocialLinks postPath={path} postNode={post} />
+          <br />
+          <PostTags tags={tags} />
         </div>
       </div>
     </section>
