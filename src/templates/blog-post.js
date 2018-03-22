@@ -8,7 +8,6 @@ import { catInfo } from '../../data'
 import PostTags from '../components/PostTags'
 import Chapters from '../components/SeriesChapters'
 import SEO from '../components/SEO'
-import UserInfo from '../components/UserInfo'
 import SocialLinks from '../components/SocialLinks/SocialLinks'
 import './blog-post.sass'
 
@@ -35,12 +34,9 @@ export const BlogPostTemplate = ({
           )}
           <div>
             <h1 className="title">{title}</h1>
-            in{' '}
-            <Link className="cat-link" to={`/categories/${category}`}>
+            {category && <span>in <Link className="cat-link" to={`/categories/${category}`}>
               {catInfo[category]}
-            </Link>
-            <br />
-            <br />
+            </Link></span>}
             <Img sizes={imageSharp.sizes} alt={`Image for "${title}"`} />
             <p>{description}</p>
             <PostContent content={post.html} />
@@ -49,7 +45,6 @@ export const BlogPostTemplate = ({
               <br />
               <PostTags tags={tags} />
             </div>
-            <UserInfo />
           </div>
         </div>
       </div>

@@ -1,18 +1,51 @@
+.footer, .footer h6
+    font-family: initial, Helvetica, sans-serif
+    font-size: .8em
+
+.footer h4
+    font-size: 1.2em
+    font-weight: bold
+    margin-top: 0
+
 .footer
     justify-content: center
     align-content: center
-    padding: 10px 5px 0
+    padding: 1rem 1rem 0.1rem
+    background-color: #efefef
+    //a
+    //    color: #ff4400
+    iframe
+        margin-bottom: 0
+    > .container
+        display: flex
+        .item
+            flex: 1
+            padding: 1em 1em 0
+    ul
+        margin-left: 0
+    li
+        list-style: none
+        line-height: .8rem
 
-.notice-container
+.footer .contact
+    margin-left: 2em
+
+.footer .notice-container
     display: flex
-    flex-wrap: wrap
-    justify-content: space-between
-    align-content: center
-    align-items: center
-    margin-top: 25px
-    h4
+    //flex-wrap: wrap
+    //justify-content: space-between
+    //align-content: center
+    //align-items: center
+    margin: 0
+    border-top: 1px solid #e0e0e0
+    //.item
+    //    padding-top: 10px
+    h6
+        flex: 1
         text-align: center
-        margin: 0
+        margin-bottom: 0
+    a
+        margin-bottom: 0
 
 @media (max-width: 640px (-1px))
     .notice-container
