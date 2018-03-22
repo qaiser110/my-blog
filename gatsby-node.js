@@ -7,6 +7,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
   const { createPage } = boundActionCreators
   const categoryPage = path.resolve('src/templates/posts-by-category.js')
   const tagPage = path.resolve('src/templates/posts-by-tag.js')
+  const blogPage = path.resolve('src/templates/blog.js')
 
   return graphql(`
     {
@@ -85,10 +86,23 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
 
     const categorySet = new Set()
     const tagSet = new Set()
+    
+    const postsPerPage = 2
+    const pagesMap = {1: []}
+    currPage = 1
 
     result.data.allMarkdownRemark.edges.forEach(({ node }) => {
       if (node.frontmatter.category) {
         categorySet.add(node.frontmatter.category)
+      }
+
+      if (node.frontmatter.templateKey === 'blog-post') {
+        if (pagesMap[currPage].length < postsPerPage)
+          pagesMap[currPage].push(node)
+        else {
+          currPage += 1
+          pagesMap[currPage] = [node]
+        }
       }
 
       if (node.frontmatter.tags)
@@ -126,6 +140,16 @@ Allowed values are: ${Object.keys(tagInfo).join(', ')}
       }
     })
 
+    Object.keys(pagesMap).forEach(pgNum => {
+      createPage({
+        path: pgNum === 1 ? '/' : `/page-${pgNum}/`,
+        component: blogPage,
+        context: {
+          pgNum,
+          posts: pagesMap[pgNum],
+        },
+      })
+    })
     const tagList = Array.from(tagSet)
     tagList.forEach(tag => {
       createPage({
