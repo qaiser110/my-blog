@@ -1,23 +1,39 @@
 import React from 'react'
-import Script from 'react-load-script'
+import Link from 'gatsby-link'
 import graphql from 'graphql'
 import PostListing from '../components/PostListing'
 
 export default class IndexPage extends React.Component {
   render() {
-
-    const { pgNum, posts } = this.props.pathContext
-
+    const { pgNum, posts, newer, older } = this.props.pathContext
+    console.log('----newer---')
+    console.log(newer)
     return (
       <section className="section">
         <div className="container">
           <div className="content">
             <h1 className="has-text-weight-bold is-size-2">Latest Posts</h1>
           </div>
-          {posts
-            .map((node, key) => (
-              <PostListing key={key} pgNum={pgNum} post={node} showCat />
-            ))}
+          {posts.map((node, key) => (
+            <PostListing key={key} pgNum={pgNum} post={node} showCat />
+          ))}
+          <div className="pager">
+            <i>
+              {older && (
+                <Link to={older}>
+                  <span className="arrow">{'<<  '}</span> older articles
+                </Link>
+              )}
+            </i>
+            {newer && older && <span className="divider">{'  |  '}</span>}
+            <i>
+              {newer && (
+                <Link to={newer}>
+                  newer articles <span className="arrow">{' >>'}</span>
+                </Link>
+              )}
+            </i>
+          </div>
         </div>
       </section>
     )

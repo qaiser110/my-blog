@@ -140,13 +140,17 @@ Allowed values are: ${Object.keys(tagInfo).join(', ')}
       }
     })
 
-    Object.keys(pagesMap).forEach(pgNum => {
+    const pNumArr = Object.keys(pagesMap)
+    // const totalCt = pgNums.length
+    pNumArr.forEach(pgNum => {
       createPage({
-        path: pgNum === 1 ? '/' : `/page-${pgNum}/`,
+        path: pgNum === '1' ? '/' : `/page-${pgNum}/`,
         component: blogPage,
         context: {
           pgNum,
           posts: pagesMap[pgNum],
+          newer: pgNum === '2' ? '/' : pgNum !== '1' && `/page-${pgNum-1}/`,
+          older: pgNum !== pNumArr[pNumArr.length - 1] && `/page-${+pgNum+1}/`,
         },
       })
     })
