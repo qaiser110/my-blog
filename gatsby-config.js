@@ -14,6 +14,9 @@ module.exports = {
     },
   },
   plugins: [
+    // 'gatsby-plugin-preact',
+    'gatsby-plugin-catch-links',
+    'gatsby-plugin-twitter',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
     {

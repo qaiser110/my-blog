@@ -6,8 +6,6 @@ import PostListing from '../components/PostListing'
 export default class IndexPage extends React.Component {
   render() {
     const { pgNum, posts, newer, older } = this.props.pathContext
-    console.log('----newer---')
-    console.log(newer)
     return (
       <section className="section">
         <div className="container">

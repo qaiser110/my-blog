@@ -10,7 +10,14 @@ tags:
     - stuff
 ---
 
-# NOTE: This "post" is based on [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) and is meant to test styling of Markdown generated documents.
+My link: [gatsby-layouts](/gatsby-tutorial/gatsby-layouts)
+
+Somebody's Tweet:
+
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Why the EU ultimately approved the &quot;merger from hell&quot; <a href="https://t.co/J3rhmqPuj6">https://t.co/J3rhmqPuj6</a> via <a href="https://twitter.com/BV?ref_src=twsrc%5Etfw">@BV</a> <a href="https://t.co/mdokOyQ0hm">pic.twitter.com/mdokOyQ0hm</a></p>&mdash; Bloomberg (@business) <a href="https://twitter.com/business/status/977488497702522880?ref_src=twsrc%5Etfw">March 24, 2018</a></blockquote>
+
+
+### NOTE: This "post" is based on [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) and is meant to test styling of Markdown generated documents.
 
 
 This is intended as a quick reference and showcase. For more complete info, see [John Gruber's original spec](http://daringfireball.net/projects/markdown/) and the [Github-flavored Markdown info page](http://github.github.com/github-flavored-markdown/).
