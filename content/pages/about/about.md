@@ -1,24 +1,24 @@
 ---
 templateKey: about-page
 path: /about
-title: About Us
+title: About Me
 ---
-### What we do
+### What I do
 
-Having a wide range of expertise in software design and architecture.
+I'm a Software Architect, Automation Specialist, and a Full-Stack Developer. I help teams build quality software by applying good development, automation, and testing practices.
 
-### Single origin
+### Technologies I've worked on
 
-Single-origin coffee is coffee grown within a single known geographic origin. Sometimes, this is a single farm or a specific collection of beans from a single country. The name of the coffee is then usually the place it was grown to whatever degree available.
+During the last 20 years, I've worked on several languages, tools, and technologies, including JavaScript, Java, Android, Python, C#, Clojure, Elm, Elixir, Purescript, ReasonML, PHP, TypeScript, ASP, AWS, Azure, Docker, Oracle, PostgreSQL, SQL Server, MySQL, MongoDB and SQLite. 
 
-### Sustainable farming
+### Web Development
 
-Sustainable agriculture is farming in sustainable ways based on an understanding of ecosystem services, the study of relationships between organisms and their environment. What grows where and how it is grown are a matter of choice and careful consideration for nature and communities.
+With special interest in web development, I've developed Single Page Applications on ReactJS, VueJS, Backbone.js, Aurelia and AngularJS. I've also worked on several web development platforms, libraries and frameworks including Next.js, Gatsby.js, Hexo, Django, Symfony2, CodeIgniter, Electron, Redux, MobX, RxJS, Ionic, ReactNative, Firebase, 
 
-### Direct sourcing
+### Automation in Test
 
-Direct trade is a form of sourcing practiced by some coffee roasters. Advocates of direct trade practices promote direct communication and price negotiation between buyer and farmer, along with systems that encourage and incentivize quality.
+I've built Selenium Automation Frameworks for UI Regression Testing using Java, JavaScript, and C# on several projects. I've also use Node.js for UI test automation using Cypress.io, Nightwatch.js, Webdriver.io, Phantom.js and Protractor, and for creating tools for data generation, mock servers, and automated testing for Restful APIs, Visual Regression, unit testing, jest snapshot testing, etc. 
 
-### Reinvest profits
+### My favorite Node libraries
 
-We want to truly empower the communities that bring amazing coffee to you. That’s why we reinvest 20% of our profits into farms, local businesses and schools everywhere our coffee is grown. You can see the communities grow and learn more about coffee farming on our blog.
+Node community is awesome. The Node libraries I really like and often use include Ramda, moment.js, date-fns, mobx, supertest, axios, ajv, jest, enzyme, mocha, chai-expect, sinon, AVA, inquirer, commander, yargs, chalk,   

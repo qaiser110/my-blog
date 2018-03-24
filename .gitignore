@@ -9,3 +9,5 @@ static/admin/*.bundle.*
 yarn-error.log
 .idea
 tmp
+*.log
+npm-debug.log
