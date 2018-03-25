@@ -12,28 +12,29 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
   return graphql(`
     {
       allMarkdownRemark(
-        sort: { order: DESC, fields: [frontmatter___date] }
         limit: 1000
+        sort: { order: DESC, fields: [frontmatter___date] }
         filter: { frontmatter: { draft: { ne: true } } }
       ) {
         edges {
           node {
             excerpt(pruneLength: 400)
             html
+            timeToRead
             id
             frontmatter {
               templateKey
               path
               series
               chapters
-              date
+              date(formatString: "MMMM DD, YYYY")
               title
+              description
               cover
               category
               tags
               image
               heading
-              description
               intro {
                 blurbs {
                   image
@@ -87,16 +88,19 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
     const categorySet = new Set()
     const tagSet = new Set()
     
-    const postsPerPage = 2
+    const postsPerPage = 22
     const pagesMap = {1: []}
     currPage = 1
 
-    result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+    result.data.allMarkdownRemark.edges
+      .forEach(({ node }) => {
       if (node.frontmatter.category) {
         categorySet.add(node.frontmatter.category)
       }
 
-      if (node.frontmatter.templateKey === 'blog-post') {
+      if (node.frontmatter.templateKey === 'blog-post'
+      && node.frontmatter.path !== node.frontmatter.series
+      ) {
         if (pagesMap[currPage].length < postsPerPage)
           pagesMap[currPage].push(node)
         else {
@@ -104,7 +108,6 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
           pagesMap[currPage] = [node]
         }
       }
-
       if (node.frontmatter.tags)
         node.frontmatter.tags.forEach(tag => {
           if (!tagInfo[tag]) {

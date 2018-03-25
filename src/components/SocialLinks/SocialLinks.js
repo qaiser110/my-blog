@@ -54,7 +54,7 @@ class SocialLinks extends Component {
             {count => <div className="share-count">{filter(count)}</div>}
           </GooglePlusShareCount>
         </GooglePlusShareButton>
-        <FacebookShareButton url={url} quote={postNode.excerpt}>
+        <FacebookShareButton url={url} quote={postNode.frontmatter.description}>
           <FacebookIcon round size={iconSize} />
           <FacebookShareCount url={url}>
             {count => <div className="share-count">{filter(count)}</div>}
@@ -63,7 +63,7 @@ class SocialLinks extends Component {
         <LinkedinShareButton
           url={url}
           title={post.title}
-          description={postNode.excerpt}
+          description={postNode.frontmatter.description}
         >
           <LinkedinIcon round size={iconSize} />
           <LinkedinShareCount url={url}>

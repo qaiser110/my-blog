@@ -13,7 +13,7 @@ export default class IndexPage extends React.Component {
             <h1 className="has-text-weight-bold is-size-2">Latest Posts</h1>
           </div>
           {posts.map((node, key) => (
-            <PostListing key={key} pgNum={pgNum} post={node} showCat />
+            <PostListing key={key} post={node} pgNum={pgNum} showCat />
           ))}
           <div className="pager">
             <i>
@@ -50,13 +50,14 @@ export const pageQuery = graphql`
           excerpt(pruneLength: 400)
           id
           frontmatter {
+            path
             title
+            description
+            date(formatString: "MMMM DD, YYYY")
             cover
             category
             tags
             templateKey
-            date(formatString: "MMMM DD, YYYY")
-            path
             series
             chapters
           }

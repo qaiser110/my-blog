@@ -19,7 +19,7 @@ export default class CategoryTemplate extends React.Component {
               Posts tagged "<i>{tagInfo[tag].title}</i>"
             </h1>
             {this.props.data.allMarkdownRemark.edges.map(({ node }, key) => (
-              <PostListing key={key} post={node} />
+              <PostListing key={key} post={node} showCat />
             ))}
             <div><Link to="/categories">View all tags</Link></div>
           </div>
@@ -40,15 +40,15 @@ export const pageQuery = graphql`
       totalCount
       edges {
         node {
-          excerpt
           timeToRead
           frontmatter {
+            path
             title
+            description
+            date(formatString: "MMMM DD, YYYY")
             cover
             category
             tags
-            path
-            date(formatString: "MMMM DD, YYYY")
           }
         }
       }

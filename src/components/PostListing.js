@@ -37,7 +37,7 @@ export default ({ post, showCat }) => (
       </i>
     </p>
     <div>
-      {post.excerpt}
+      {post.frontmatter.description}
       <div
         style={{
           ...scale(-1 / 5),

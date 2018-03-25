@@ -42,15 +42,15 @@ export const pageQuery = graphql`
       totalCount
       edges {
         node {
-          excerpt
           timeToRead
           frontmatter {
+            path
             title
+            description
+            date(formatString: "MMMM DD, YYYY")
             cover
             category
             tags
-            path
-            date
           }
         }
       }

@@ -83,15 +83,15 @@ export const pageQuery = graphql`
       html
       frontmatter {
         path
-        date(formatString: "MMMM DD, YYYY")
         title
+        description
+        date(formatString: "MMMM DD, YYYY")
         series
         chapters
         cover
         category
         tags
         hashtags
-        description
       }
     }
     imageSharp(id: { regex: $cover }) {

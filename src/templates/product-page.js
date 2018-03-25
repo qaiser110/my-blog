@@ -115,11 +115,11 @@ export const productPageQuery = graphql`
   query ProductPage($path: String!) {
     markdownRemark(frontmatter: { path: { eq: $path } }) {
       frontmatter {
-        title
         path
+        title
+        description
         image
         heading
-        description
         intro {
           blurbs {
             image
