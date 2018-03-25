@@ -12,7 +12,7 @@ class CatsPageRoute extends React.Component {
       <div>
         <Helmet title={siteTitle + ' | categories'} />
         <div>
-          <h1>Categories</h1>
+          <h1 className="title">Categories</h1>
           <ul>
             {allCats.map(
               cat =>

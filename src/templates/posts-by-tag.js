@@ -1,27 +1,28 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import Link from "gatsby-link"
+import Link from 'gatsby-link'
 import PostListing from '../components/PostListing'
 import config from '../../data/SiteConfig'
 import { tagInfo } from '../../data'
 
 export default class CategoryTemplate extends React.Component {
   render() {
-    const tag = this.props.pathContext.tag
+    const { tag } = this.props.pathContext
     return (
       <section className="section">
         <Helmet
-          title={`Posts tagged "${tagInfo[tag].title}" | ${config.siteTitle}`}
+          title={`Articles tagged "${tagInfo[tag]
+            .title}" | ${config.siteTitle}`}
         />
         <div className="container">
           <div className="content">
-            <h1>
-              Posts tagged "<i>{tagInfo[tag].title}</i>"
-            </h1>
+            <h1 className="title">Posts tagged "{tagInfo[tag].title}"</h1>
             {this.props.data.allMarkdownRemark.edges.map(({ node }, key) => (
               <PostListing key={key} post={node} showCat />
             ))}
-            <div><Link to="/categories">View all tags</Link></div>
+            <div>
+              <Link to="/categories">View all tags</Link>
+            </div>
           </div>
         </div>
       </section>

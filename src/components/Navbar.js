@@ -19,10 +19,10 @@ const Navbar = () => (
         <Link to="/about">About</Link>
       </li>
       <li>
-        <Link to="/tags/">tags</Link>
+        <Link to="/series/">Series</Link>
       </li>
       <li>
-        <Link to="/categories">categories</Link>
+        <Link to="/categories">Categories</Link>
       </li>
       <li>
         <a href="#contact">Contact</a>

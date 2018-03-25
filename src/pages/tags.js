@@ -1,9 +1,9 @@
-import React from "react"
-import Helmet from "react-helmet"
-import Link from "gatsby-link"
+import React from 'react'
+import Helmet from 'react-helmet'
+import Link from 'gatsby-link'
 // import kebabCase from "lodash/kebabCase"
-import {siteTitle} from "../../data/SiteConfig"
-import { tagInfo } from "../../data"
+import { siteTitle } from '../../data/SiteConfig'
+import { tagInfo } from '../../data'
 
 class TagsPageRoute extends React.Component {
   render() {
@@ -12,20 +12,20 @@ class TagsPageRoute extends React.Component {
       <div>
         <Helmet title={siteTitle + ' | tags'} />
         <div>
-          <h1>Tags</h1>
+          <h1 className="title">Tags</h1>
           <ul>
-            {allTags.map(tag =>
+            {allTags.map(tag => (
               <li key={tag.fieldValue}>
                 <Link
                   style={{
-                    textDecoration: "none",
+                    textDecoration: 'none',
                   }}
                   to={`/tags/${tag.fieldValue}/`}
                 >
                   {tagInfo[tag.fieldValue].title} ({tag.totalCount})
                 </Link>
               </li>
-            )}
+            ))}
           </ul>
         </div>
       </div>

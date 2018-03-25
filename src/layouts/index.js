@@ -8,7 +8,7 @@ import Footer from '../components/Footer/Footer'
 import config from '../../data/SiteConfig'
 import favicon from './favicon.png'
 import './all.sass'
-const {rhythm, scale} = require("../utils/typography")
+const { rhythm, scale } = require('../utils/typography')
 
 class TemplateWrapper extends React.Component {
   handleScriptLoad() {
@@ -33,12 +33,15 @@ class TemplateWrapper extends React.Component {
           url="https://identity.netlify.com/v1/netlify-identity-widget.js"
           onLoad={() => this.handleScriptLoad()}
         />
-        <Helmet title="Home | Gatsby + Netlify CMS" />
+        <Helmet title="Home | ${config.siteTitle}" />
         <Helmet>
           <meta charSet="utf-8" />
-          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+          <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+          />
           <link rel="shortcut icon" href={favicon} />
-          <link rel="stylesheet" href="/style.css"/>
+          <link rel="stylesheet" href="/style.css" />
         </Helmet>
         <Navbar />
         <div

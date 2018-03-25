@@ -1,6 +1,5 @@
 import React from 'react'
 import Link from 'gatsby-link'
-import graphql from 'graphql'
 import PostListing from '../components/PostListing'
 
 export default class IndexPage extends React.Component {
@@ -10,7 +9,7 @@ export default class IndexPage extends React.Component {
       <section className="section">
         <div className="container">
           <div className="content">
-            <h1 className="has-text-weight-bold is-size-2">Latest Posts</h1>
+            <h1 className="title">Latest Articles</h1>
           </div>
           {posts.map((node, key) => (
             <PostListing key={key} post={node} pgNum={pgNum} showCat />

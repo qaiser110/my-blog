@@ -9,6 +9,10 @@ chapters:
     - /gatsby-tutorial/gatsby-components
     - /gatsby-tutorial/gatsby-layouts
     - /gatsby-tutorial/gatsby-graphql
+category: technology
+tags:
+    - programming
+    - stuff
 ---
 In search of a good framework for building
 This is an intro to building sites with Gatsby.

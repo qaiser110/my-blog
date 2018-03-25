@@ -88,7 +88,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
     const categorySet = new Set()
     const tagSet = new Set()
     
-    const postsPerPage = 22
+    const postsPerPage = 3
     const pagesMap = {1: []}
     currPage = 1
 

@@ -9,6 +9,7 @@ import PostTags from '../components/PostTags'
 import Chapters from '../components/SeriesChapters'
 import SEO from '../components/SEO'
 import SocialLinks from '../components/SocialLinks/SocialLinks'
+import config from '../../data/SiteConfig'
 import './blog-post.sass'
 
 export const BlogPostTemplate = ({
@@ -37,7 +38,11 @@ export const BlogPostTemplate = ({
             </Link>
           </span>
         )}
-        <Img className="cover-img" sizes={imageSharp.sizes} alt={`Image for "${title}"`} />
+        <Img
+          className="cover-img"
+          sizes={imageSharp.sizes}
+          alt={`Image for "${title}"`}
+        />
         <p>{description}</p>
         {isSeries && (
           <Chapters series={series} chapters={chapters} currPath={path} />
@@ -72,7 +77,9 @@ export default ({ data }) => {
       series={series}
       chapters={chaps}
       contentComponent={HTMLContent}
-      helmet={<Helmet title={`Blog | ${post.frontmatter.title}`} />}
+      helmet={
+        <Helmet title={`${post.frontmatter.title} | ${config.siteTitle}`} />
+      }
     />
   )
 }

@@ -20,7 +20,7 @@ export default ({ tags }) => {
   })
 
   return (
-    <div>
+    <div className="tags">
       <span className='dim'>Tagged with:</span> {tagSection}
     </div>
   )
