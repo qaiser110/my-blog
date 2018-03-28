@@ -23,7 +23,7 @@ collections:
       - label: "Category"
         name: "category"
         widget: "select"
-        options: ["scaa", "home-made", "history", "technology"]
+        options: ["scaa", "home-made", "history", "react-native"]
       - {label: "Description", name: "description", widget: "text"}
       - {label: "Body", name: "body", widget: "markdown"}
 

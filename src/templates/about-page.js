@@ -1,12 +1,15 @@
 import React from 'react'
 import graphql from 'graphql'
+import Helmet from 'react-helmet'
 import Content, { HTMLContent } from '../components/Content'
+import config from '../../data/SiteConfig'
 
 export const AboutPageTemplate = ({ title, content, contentComponent }) => {
   const PageContent = contentComponent || Content
 
   return (
     <section className="section">
+      <Helmet title={`About me | ${config.siteTitle}`} />
       <div className="container">
         <h2 className="title">{title}</h2>
         <PageContent className="content" content={content} />

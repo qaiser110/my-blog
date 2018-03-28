@@ -33,7 +33,7 @@ class TemplateWrapper extends React.Component {
           url="https://identity.netlify.com/v1/netlify-identity-widget.js"
           onLoad={() => this.handleScriptLoad()}
         />
-        <Helmet title="Home | ${config.siteTitle}" />
+        <Helmet title={`Blog | ${config.siteTitle}`} />
         <Helmet>
           <meta charSet="utf-8" />
           <meta

@@ -2,7 +2,7 @@ const catInfo = {
   scaa: 'SCAA',
   'home-made': 'Home Made',
   history: 'History',
-  technology: 'Technology',
+  'react-native': 'React Native',
 }
 
 const tagInfo = {
@@ -14,13 +14,9 @@ const tagInfo = {
     title: 'Testing',
     score: 5,
   },
-  stuff: {
-    title: 'stuff',
+  'react-native': {
+    title: 'React Native',
     score: 1,
-  },
-  technology: {
-    title: 'Technology',
-    score: 3,
   },
   miscellaneous: {
     title: 'Miscellaneous',

@@ -4,10 +4,10 @@ path: /big-test
 title: "Big Test"
 date: 2018-01-01T15:04:10.000Z
 description: The Coffee Taster’s Flavor Wheel, the official resource used by coffee tasters, has been revised for the first time this year.
-category: technology
+category: react-native
 tags:
     - programming
-    - stuff
+    - react-native
 ---
 
 My link: [gatsby-layouts](/gatsby-tutorial/gatsby-layouts)
