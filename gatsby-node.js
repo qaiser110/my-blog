@@ -1,7 +1,7 @@
 // const _ = require("lodash")
 // const webpackLodashPlugin = require("lodash-webpack-plugin")
 const path = require('path')
-const { tagInfo } = require('./data/index.js')
+const { catInfo, tagInfo } = require('./data/index.js')
 
 exports.createPages = ({ boundActionCreators, graphql }) => {
   const { createPage } = boundActionCreators
@@ -87,19 +87,24 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
 
     const categorySet = new Set()
     const tagSet = new Set()
-    
+
     const postsPerPage = 3
-    const pagesMap = {1: []}
+    const pagesMap = { 1: [] }
     currPage = 1
+    const err = []
 
-    result.data.allMarkdownRemark.edges
-      .forEach(({ node }) => {
+    result.data.allMarkdownRemark.edges.forEach(({ node }) => {
       if (node.frontmatter.category) {
-        categorySet.add(node.frontmatter.category)
+        const cat = node.frontmatter.category
+        categorySet.add(cat)
+        if (!catInfo[cat])
+          err.push(`Category \`${cat}\` used in "${node.frontmatter
+            .path}" doesn't exist in \`data/index.js\`
+`)
       }
-
-      if (node.frontmatter.templateKey === 'blog-post'
-      && node.frontmatter.path !== node.frontmatter.series
+      if (
+        node.frontmatter.templateKey === 'blog-post' &&
+        node.frontmatter.path !== node.frontmatter.series
       ) {
         if (pagesMap[currPage].length < postsPerPage)
           pagesMap[currPage].push(node)
@@ -111,12 +116,10 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
       if (node.frontmatter.tags)
         node.frontmatter.tags.forEach(tag => {
           if (!tagInfo[tag]) {
-            const err = `Tag "${tag}" used in "${
-              node.frontmatter.path
-            }" doesn't exist in "data/index.js"
-Allowed values are: ${Object.keys(tagInfo).join(', ')}
-`
-            throw new Error(err)
+            err.push(`Tag \`${tag}\` used in \`${node.frontmatter
+              .path}\` doesn't exist in \`data/index.js\`
+`)
+            // throw new Error(err)
           }
           tagSet.add(tag)
         })
@@ -143,6 +146,19 @@ Allowed values are: ${Object.keys(tagInfo).join(', ')}
       }
     })
 
+    if (err.length > 0) {
+      console.log((`
+      
+${JSON.stringify(err)}
+
+Allowed categories are: ${Object.keys(catInfo).join(', ')}
+
+Allowed tags are: ${Object.keys(tagInfo).join(', ')}
+
+      `))
+      throw new Error()
+    }
+
     const pNumArr = Object.keys(pagesMap)
     // const totalCt = pgNums.length
     pNumArr.forEach(pgNum => {
@@ -152,8 +168,9 @@ Allowed values are: ${Object.keys(tagInfo).join(', ')}
         context: {
           pgNum,
           posts: pagesMap[pgNum],
-          newer: pgNum === '2' ? '/' : pgNum !== '1' && `/page-${pgNum-1}/`,
-          older: pgNum !== pNumArr[pNumArr.length - 1] && `/page-${+pgNum+1}/`,
+          newer: pgNum === '2' ? '/' : pgNum !== '1' && `/page-${pgNum - 1}/`,
+          older:
+            pgNum !== pNumArr[pNumArr.length - 1] && `/page-${+pgNum + 1}/`,
         },
       })
     })

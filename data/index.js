@@ -1,4 +1,5 @@
 const catInfo = {
+  'code-style': 'Code Style',
   scaa: 'SCAA',
   'home-made': 'Home Made',
   history: 'History',
