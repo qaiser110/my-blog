@@ -43,7 +43,7 @@ cd rn-bookstore-app
 npm start
 ```
 
-This will launch the !
+This will start the packager, giving the option to launch the iOS or Android simulator, or open the app on a real device. 
 
 If you face any issues, please refer to either the [React Native's getting started guide](https://facebook.github.io/react-native/docs/getting-started.html) or [Create React Native app (CRNA) guide](https://github.com/react-community/create-react-native-app/blob/master/react-native-scripts/template/README.md)
 
