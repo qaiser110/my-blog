@@ -15,166 +15,164 @@ hashtags:
     - eslint
     - arirbnb
 ---
-## why is linting tool important
+## Why is linting tool important
 
-## why is Code styling important
+JavaScript is a dynamic language, and lacks the type system. Consequently, there is not the kind of static analysis tools support that many other languages like Java and C# have to offer, and there's more chance of introducing defects related to data types, especially for novice developers. Since it's not a compiled language, error are discovered when the JavaScript code is executed at runtime. TypeScript and flow help reduce these kind of errors by adding type system to JavaScript, but we won't be going into either of these tools in this tutorial. On the other hand, there are linting tools like ESLint available allow developers to discover problems with their JavaScript code before it is executed through static analysis.
 
-Being a dynamic language, and the lack of type system, there's more chance of type errors JavaScript especially for novice developers. Since it's not a compiled language, error are discovered when the JavaScript code is executed at runtime. TypeScript and flow help reduce these kind of errors by adding type system to JavaScript, but we won't be going into that in this tutorial. Linting tools like ESLint allow developers to discover problems with their JavaScript code without executing it through static analysis. This is why a good linting tool is extremely important to ensure that quality is baked in from the beginning and errors are found early. ESLint also helps you in implementing style guidelines. To ensure code quality and having the right tools from the very beginning of our Bookstore project, we'll start our tutorial series by first implementing linting tools. You can learn more about [ESLint on their website](https://eslint.org/docs/about/).
+## Install and Setup ESLint
 
-ESLint is configurable and you can set your rules according to your preferences. However different linting rules configuration have have been provided by the community. One of the popular ones is the airbnb styles guides. The eslint-config-airbnb package provides the contains all of the airbnb ESLint rules, including ECMAScript 6+ and React. We'll use that. Go to the repo to follow the instructions, or if you are on a Mac or Linux, simply run this command in the terminal:
-(
-  export PKG=eslint-config-airbnb;
-  npm info "$PKG@latest" peerDependencies --json | command sed 's/[\{\},]//g ; s/: /@/g' | xargs npm install --save-dev "$PKG@latest"
-)
+ESLint allow developers to discover potential errors by performing static analysis and flagging suspicious code that is likely to introduce bugs. This is why a good linting tool is extremely important to ensure that quality is baked in from the beginning and errors are found early. ESLint also helps you in implementing style guidelines. To ensure code quality and having the right tools from the very beginning of our Bookstore project, we'll start our tutorial series by first implementing linting tools. You can learn more about [ESLint on their website](https://eslint.org/docs/about/).
 
-To create the eslint configuration file, 
-eslint --init
+ESLint is fully configurable and customizable. You can set your rules according to your preferences. However different linting rules configuration have have been provided by the community. One of the popular ones is the airbnb styles guide. We'll use the airbnb styles guide. This will include airbnb ESLint rules, including ECMAScript 6+ and React.
 
-![initializing linting via eslint-init](img/react-native/eslint-init-initialize.png)
+First, we'll install eslint by running this command in the terminal:
 
-A file .eslintrc.js will be created with the following configurations:
+We'll use Airbnb's [eslint-config-airbnb](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb), which contains Airbnb's ESLint rules, including ECMAScript 6+ and React. It requires specific versions of eslint, eslint-plugin-import, eslint-plugin-react, and eslint-plugin-jsx-a11y. To list the peer dependencies and versions, run this command
+
+```sh
+npm info "eslint-config-airbnb@latest" peerDependencies
+```
+
+At the time of this writing, these are the versions shown in the output from the above command:
+
+```sh
+{ eslint: '^4.9.0',
+  'eslint-plugin-import': '^2.7.0',
+  'eslint-plugin-jsx-a11y': '^6.0.2',
+  'eslint-plugin-react': '^7.4.0' }
+```
+
+So let's install these specific dependencies versions by running this command:
+
+```sh
+yarn add -D eslint@^4.9.0 eslint-plugin-import@^2.7.0 eslint-plugin-jsx-a11y@^6.0.2 eslint-plugin-react@^7.4.0
+```
+
+This would install the necessary dependencies and generate the `.eslintrc.js` file in the project root directory. The .eslintrc.js file should have the following configurations:
 
 ```js
 module.exports = {
-    "extends": [
-      "prettier"
-    ],
-    "plugins": [
-        "react",
-        "jsx-a11y",
-        "import"
-    ]
-}
+    "extends": "airbnb"
+};
 ```
 
-You might be using experimental features not supported in ESLint itself yet. To avoid linting errors on those experimental features, let's also add babel-eslint
+## Code styling
 
-npm install --save-dev babel-eslint
+While we have the linting covered with ESLint and Airbnb Style Guide, a big part of code quality is consistent code styling. When you're working in a team, you want to make sure that the code formatting and indentation is consistent throughout the team. Prettier is just the tool for that. It ensures that all the code conforms to a consistent style.
 
-Add "babel-eslint" to .eslintrc.js
+We'll also add the [ESLint plugin for prettier](https://github.com/prettier/eslint-plugin-prettier), which will add Prettier as an ESLint rule and report differences as individual ESLint issues.
 
-```js
-module.exports = {
-    "parser": "babel-eslint",
-    "extends": [
-	//...
+Now, there may be conflicts between the ESLint rules and the code formatting done by prettier. Fortunately, there is a plugin available called [eslint-config-prettier](https://github.com/prettier/eslint-config-prettier) that turns off all rules that are unnecessary or might conflict with prettier.
+
+## Install and Setup Prettier with ESLint
+
+Let's install all the necessary packages, prettier and eslint-plugin-prettier. We'll also need to install eslint-config-airbnb for this:
+
+```sh
+yarn add -D prettier prettier-eslint eslint-plugin-prettier eslint-config-prettier eslint-config-airbnb
 ```
 
-https://medium.freecodecamp.org/adding-some-air-to-the-airbnb-style-guide-3df40e31c57a
-
-We'll a
-https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb#eslint-config-airbnb-1
-
-Code styling
-No one like ugly code. And when you're working in a team, you want to make sure that the code formatting and indentation is consistent throughout the team. Prettier is just the tool for that. It ensures that all the code conforms to a consistent style. 
-
-We'll also add the ESLint plugin for prettier, which will add Prettier as an ESLint rule and report differences as individual ESLint issues. 
-
-Now, there may be conflicts between the ESLint rules and the code formatting done by prettier. Fortunately, there is a plugin available called eslint-config-prettier that turns off all rules that are unnecessary or might conflict with prettier. So let's install all the necessary tools, prettier and eslint-plugin-prettier
-
-npm install --save-dev prettier eslint-plugin-prettier eslint-config-prettier
+NOTE: If ESLint is installed globally, then make sure eslint-plugin-prettier is also installed globally. A globally-installed ESLint cannot find a locally-installed plugin.
 
 To enable eslint-plugin-prettier plugin, update your .eslintrc.js file to add the "prettier" plugin. And to show linting error on Prettier formatting rules, add the "rule" to show error on "prettier/prettier". Here's our updated .eslintrc.js:
 
 ```js
 module.exports = {
- "parser": "babel-eslint",
- "extends": [
-   "airbnb",
-   "prettier"
- ],
- "plugins": [
-   "react",
-   "prettier",
-   "jsx-a11y",
-   "import"
+  "extends": [
+    "airbnb",
+    "prettier"
   ],
-  "rules": {
-    "prettier/prettier": "error"
-  }
+  rules: {
+    "prettier/prettier": "error",
+  },
 }
 ```
 
-eslint-config-prettier also ships with a CLI tool to help you check if your configuration contains any rules that are unnecessary or conflict with Prettier. Let's be proactive and do just that.
+[eslint-config-prettier](https://github.com/prettier/eslint-config-prettier also ships with a CLI tool to help you check if your configuration contains any rules that are unnecessary or conflict with Prettier. Let's be proactive and do just that.
+
 First, add a script for it to package.json:
+
+```json
 {
   "scripts": {
     "eslint-check": "eslint --print-config .eslintrc.js | eslint-config-prettier-check"
   }
 }
+```
 
-Now, run the "eslint-check" command: 
+Now, run the "eslint-check" command to see eslint and prettier conflicting rules:
+
+```sh
 npm run eslint-check
+```
+
 This will list the conflicting rules in the terminal. Let's turn off the conflicting rules by updating the .eslintrc.js file. I also prefer singleQuote and trailingComma, so I'll configure those rules as well. This is what our .eslintrc.js file looks like now:
 
 ```js
 module.exports = {
- "parser": "babel-eslint",
- "extends": [
-   "airbnb",
-   "prettier"
- ],
- "plugins": [
-   "react",
-   "jsx-a11y",
-   "import"
- ],
- "rules": {
-   "prettier/prettier": "error",
-   "react/jsx-closing-bracket-location": "off",
-   "react/jsx-curly-spacing": "off",
-   "react/jsx-equals-spacing": "off",
-   "react/jsx-first-prop-new-line": "off",
-   "react/jsx-indent": "off",
-   "react/jsx-indent-props": "off",
-   "react/jsx-max-props-per-line": "off",
-   "react/jsx-tag-spacing": "off",
-   "react/jsx-wrap-multilines": "off"
- }
+  "parser": "babel-eslint",
+  "extends": [
+    "airbnb",
+    "prettier"
+  ],
+  "plugins": [
+    "prettier"
+  ],
+  "rules": {
+    "prettier/prettier": "error",
+    "react/jsx-closing-bracket-location": "off",
+    "react/jsx-closing-tag-location": "off",
+    "react/jsx-curly-spacing": "off",
+    "react/jsx-equals-spacing": "off",
+    "react/jsx-first-prop-new-line": "off",
+    "react/jsx-indent": "off",
+    "react/jsx-indent-props": "off",
+    "react/jsx-max-props-per-line": "off",
+    "react/jsx-tag-spacing": "off",
+    "react/jsx-wrap-multilines": "off"
+  }
 }
 ```
 
-Configure VS Code to run eslint on save
+## Configure VS Code to run eslint on save
+
 We can configure any IDE to automatically run eslint on Save or as we type, and since we have also configured prettier along with eslint, our code will automatically be pretiffied. VS Code is an IDE popular in the JavaScript community, so I'll show how to setup eslint auto-fix on save using VS Code, but the steps would be similar in any IDE.
 
-To configure VS Code to automatically run eslint on Save, we first need to install the eslint extension. Go to Extensions, search for "ESLint" extension, and install it. Once the ESLint extension is installed, go to Preferences > User Settings, and set "eslint.autoFixOnSave" to true. Also make sure that "files.autoSave" is either "off", "onFocusChange" or "onWindowChange".
+To configure VS Code to automatically run eslint on Save, we first need to install the eslint extension. Go to Extensions, search for "ESLint" extension, and install it. Once the ESLint extension is installed, go to `Preferences > User Settings`, and set "eslint.autoFixOnSave" to true. Also make sure that "files.autoSave" is either "off", "onFocusChange" or "onWindowChange".
 
 Now, open the file App.js. If the eslint is configured correctly, you should see some linting error, like the "react/prefer-stateless-function", "react/jsx-filename-extension", and "no-use-before-define" errors. Let's turn those "off" in the .eslintrc.js file. I also prefer singleQuote and trailingComma, so I'll configure those rules as well. Here is the updated .eslintrc.js file.
 
 ```js
 module.exports = {
- "parser": "babel-eslint",
- "extends": [
-   "airbnb",
-   "prettier"
- ],
- "plugins": [
-   "react",
-   "prettier",
-   "jsx-a11y",
-   "import"
- ],
- "rules": {
-   "prettier/prettier": [
-     "error",
-     {
-       "singleQuote": true,
-       "trailingComma": "all",
-     }
-   ],
-   "react/prefer-stateless-function": "off",
-   "react/jsx-filename-extension": "off",
-   "no-use-before-define": "off",
-   "react/jsx-closing-bracket-location": "off",
-   "react/jsx-curly-spacing": "off",
-   "react/jsx-equals-spacing": "off",
-   "react/jsx-first-prop-new-line": "off",
-   "react/jsx-indent": "off",
-   "react/jsx-indent-props": "off",
-   "react/jsx-max-props-per-line": "off",
-   "react/jsx-tag-spacing": "off",
-   "react/jsx-wrap-multilines": "off"
- }
+  "parser": "babel-eslint",
+  "extends": [
+    "airbnb",
+    "prettier"
+  ],
+  "plugins": [
+    "prettier"
+  ],
+  "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "singleQuote": true,
+        "trailingComma": "all",
+      }
+    ],
+    "react/prefer-stateless-function": "off",
+    "react/jsx-filename-extension": "off",
+    "no-use-before-define": "off",
+    "react/jsx-closing-bracket-location": "off",
+    "react/jsx-curly-spacing": "off",
+    "react/jsx-equals-spacing": "off",
+    "react/jsx-first-prop-new-line": "off",
+    "react/jsx-indent": "off",
+    "react/jsx-indent-props": "off",
+    "react/jsx-max-props-per-line": "off",
+    "react/jsx-tag-spacing": "off",
+    "react/jsx-wrap-multilines": "off"
+  }
 }
 ```
 
