@@ -3,7 +3,7 @@ import Link from 'gatsby-link'
 
 // const ToC = ({})
 
-export default ({ series, chapters, currPath }) =>
+export default ({ series, chapterNodes, currPath }) =>
   currPath === series.path ? null : (
     <aside id="series">
       This blog post is part of a series on{' '}
@@ -17,19 +17,19 @@ export default ({ series, chapters, currPath }) =>
       <br/>
       <br/>
       <ol className="chapters">
-        {series.chapters.map(
+        {chapterNodes.map(
           (chap, key) =>
-            currPath === chapters[chap].path ? (
+            currPath === chap.path ? (
               <li key={key}>
-                <span className="curr-post">{chapters[chap].title}</span>
+                <span className="curr-post">{chap.title}</span>
               </li>
             ) : (
               <Link
                 key={key}
                 style={{ textDecoration: 'none' }}
-                to={`${chapters[chap].path}`}
+                to={`${chap.path}`}
               >
-                <li>{chapters[chap].title}</li>
+                <li>{chap.title}</li>
               </Link>
             )
         )}

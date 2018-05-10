@@ -15,12 +15,14 @@ import './blog-post.sass'
 export const BlogPostTemplate = ({
   post,
   series,
-  chapters,
+  chapterNodes,
   imageSharp,
   contentComponent,
   helmet,
 }) => {
   const PostContent = contentComponent || Content
+  console.log('----post.frontmatter---');
+  console.log(post.frontmatter);
   const { path, title, description, cover, category, tags } = post.frontmatter
   const smallImage = imageSharp.sizes.srcSet.split(' ')[0]
   const isSeries = series && series.chapters && series.chapters.length > 0
@@ -45,7 +47,11 @@ export const BlogPostTemplate = ({
         />
         <p>{description}</p>
         {isSeries && (
-          <Chapters series={series} chapters={chapters} currPath={path} />
+          <Chapters
+            series={series}
+            chapterNodes={chapterNodes}
+            currPath={path}
+          />
         )}
         <PostContent content={post.html} />
         <div className="post-meta">
@@ -60,22 +66,24 @@ export const BlogPostTemplate = ({
 
 export default ({ data }) => {
   const { markdownRemark: post, imageSharp, chapters } = data
-  let chaps = {}
+  let chapterNodes = []
   let series = null
   if (chapters) {
     chapters.edges.forEach(
       ch =>
         ch.node.frontmatter.path === ch.node.frontmatter.series
           ? (series = ch.node.frontmatter)
-          : (chaps[ch.node.frontmatter.path] = ch.node.frontmatter)
+          : chapterNodes.push(ch.node.frontmatter)
     )
   }
+  console.log('----chapterNodes---')
+  console.log(chapterNodes)
   return (
     <BlogPostTemplate
       imageSharp={imageSharp}
       post={post}
       series={series}
-      chapters={chaps}
+      chapterNodes={chapterNodes}
       contentComponent={HTMLContent}
       helmet={
         <Helmet title={`${post.frontmatter.title} | ${config.siteTitle}`} />
