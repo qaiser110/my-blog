@@ -177,4 +177,5 @@ module.exports = {
 ```
 
 I know this was a lot of work, considering that we haven't even started working on our app yet, but trust me this setup would be very beneficial in the long run, even if you're a one person team, and when you're working with other developers, linting and coding standards will go a long way in reducing code defects and ensuring consistency in code style.
-https://github.com/qaiser110/react-native-mobx-starter/tree/1-eslint-airbnb-prettier 
+
+You can find the changes made in this part at <a href="https://github.com/qaiser110/ReactNative-Bookstore-App-Tutorial/tree/1-prettier-eslint-airbnb-styleguide-setup" target="_blank">this branch</a> of the tutorial repository. 
