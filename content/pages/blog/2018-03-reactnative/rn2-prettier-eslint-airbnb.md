@@ -6,9 +6,9 @@ cover: /img/products-grid1.jpg
 title: Setup prettier, eslint, and airbnb style guide
 date: 2017-01-04T15:04:10.000Z
 description: In this tutorial, we'll setup prettier, eslint, and arirbnb style guide to make sure our code not only looks pretty, but also runs code linting.
-category: code-style
+category: programming
 tags:
-    - programming
+    - eslint
     - react-native
 hashtags:
     - prettier
@@ -134,6 +134,8 @@ module.exports = {
 }
 ```
 
+If you now run `eslint` with the `--fix` flag, the code will be automatically formatted according to the prettier styles.
+
 ## Configure VS Code to run eslint on save
 
 We can configure any IDE to automatically run eslint on Save or as we type, and since we have also configured prettier along with eslint, our code will automatically be pretiffied. VS Code is an IDE popular in the JavaScript community, so I'll show how to setup eslint auto-fix on save using VS Code, but the steps would be similar in any IDE.
@@ -176,6 +178,6 @@ module.exports = {
 }
 ```
 
-I know this was a lot of work, considering that we haven't even started working on our app yet, but trust me this setup would be very beneficial in the long run, even if you're a one person team, and when you're working with other developers, linting and coding standards will go a long way in reducing code defects and ensuring consistency in code style.
+I know this was a lot of work, considering that we haven't even started working on our app yet, but trust me this setup would be very beneficial in the long run, even if you're a one person team, and when you're working with other developers, linting and programming standards will go a long way in reducing code defects and ensuring consistency in code style.
 
 You can find the changes made in this part at <a href="https://github.com/qaiser110/ReactNative-Bookstore-App-Tutorial/tree/1-prettier-eslint-airbnb-styleguide-setup" target="_blank">this branch</a> of the tutorial repository. 

@@ -1,18 +1,23 @@
 const catInfo = {
-  'code-style': 'Code Style',
-  scaa: 'SCAA',
-  'home-made': 'Home Made',
-  history: 'History',
-  'react-native': 'React Native',
+  'testing': 'Testing',
+  'programming': 'Programming',
 }
 
 const tagInfo = {
-  programming: {
-    title: 'Programming',
+  eslint: {
+    title: 'ESLint',
     score: 5,
   },
-  testing: {
-    title: 'Testing',
+  'unit-testing': {
+    title: 'Unit Testing',
+    score: 5,
+  },
+  'api-testing': {
+    title: 'API Testing',
+    score: 5,
+  },
+  'ui-automation': {
+    title: 'UI Automation',
     score: 5,
   },
   'react-native': {

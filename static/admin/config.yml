@@ -18,12 +18,12 @@ collections:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Cover", name: "cover", widget: "image"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Tags", name: "tags", widget: "list", default: ["programming","testing","miscellaneous"]}
-      - {label: "Twitter Hashtags", name: "hashtags", widget: "list", default: ["programming","testing"]}
+      - {label: "Tags", name: "tags", widget: "list", default: ["eslint","testing","miscellaneous"]}
+      - {label: "Twitter Hashtags", name: "hashtags", widget: "list", default: ["eslint","testing"]}
       - label: "Category"
         name: "category"
         widget: "select"
-        options: ["scaa", "home-made", "history", "react-native"]
+        options: ["programming", "react-native"]
       - {label: "Description", name: "description", widget: "text"}
       - {label: "Body", name: "body", widget: "markdown"}
 

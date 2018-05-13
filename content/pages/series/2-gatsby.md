@@ -1,5 +1,6 @@
 ---
 templateKey: blog-post
+draft: true
 path: /gatsby-tutorial
 series: /gatsby-tutorial
 title: "Getting Started with Gatsby"
@@ -9,9 +10,9 @@ chapters:
     - /gatsby-tutorial/gatsby-components
     - /gatsby-tutorial/gatsby-layouts
     - /gatsby-tutorial/gatsby-graphql
-category: react-native
+category: programming
 tags:
-    - programming
+    - eslint
     - react-native
 ---
 In search of a good framework for building

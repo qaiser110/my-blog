@@ -1,12 +1,13 @@
 ---
 templateKey: blog-post
+draft: true
 path: /big-test
 title: "Big Test"
 date: 2018-01-01T15:04:10.000Z
 description: The Coffee Taster’s Flavor Wheel, the official resource used by coffee tasters, has been revised for the first time this year.
-category: react-native
+category: programming
 tags:
-    - programming
+    - eslint
     - react-native
 ---
 

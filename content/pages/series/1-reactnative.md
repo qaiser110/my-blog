@@ -11,16 +11,16 @@ chapters:
     - /react-native-tutorial/drawer-navigation-tabs-with-react-navigation
     - 
     - 
-category: react-native
+category: programming
 tags:
-    - programming
+    - eslint
     - react-native
-    - testing
+    - unit-testing
 ---
 
 ##Introduction
 
-In this series, we'll build a mobile application in ReactNative, and also explore some of the development practices including directory structure, state management (in Mobx) code styling and linting tools (prettier, eslint, and arirbnb style guide), and an important, but often ignored part - testing your application (via jest and enzyme).
+In this series, we'll build a mobile application in ReactNative, and also explore some of the development practices including directory structure, state management (in Mobx) code styling and linting tools (prettier, eslint, and arirbnb style guide), and an important, but often ignored part - unit-testing your application (via jest and enzyme).
 
 ### Topics Covered
 
