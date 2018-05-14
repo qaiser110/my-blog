@@ -165,10 +165,11 @@ Now, when we open the Books menu from the drawer, we're able to switch tabs by c
 
 With those changes we have our apps navigations all done. 
 
+## Authors List using react-native-elements
 
+yarn add react-native-elements
 
-
-
+We'll add in some Authors
 
 github.com/qaiser110/react-native-mobx-starter/commit/7e5ef8c6dd12c64b9721a4e17050ed9c60c835c6
 
