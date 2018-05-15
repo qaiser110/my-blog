@@ -356,7 +356,8 @@ get sortedBooks() {
 
 And with this change, we should be in the green again.
 
-The way views in MST stores work is, xxxxx 
+The way views in MST stores work is, xxxxx
+Views are basically computeed functions in MobX and provide the Reactive  
 
 We know that there are 7 Nonfiction books in the mock data. Let's now add a test for filtering by `genre`:
 
@@ -380,9 +381,88 @@ get sortedBooks() {
 
 And again, all tests are passing.
 
-## Running the app
+## Update the UI on tab change
 
-**NOTE**: From here on, we'll use the mock data for our actual API calls instead of making Ajax requests to Google Books API. To do this, I've changed the `bookApi` in the `book/store.js` to point to the mock API.
+**NOTE**: From here on, we'll use the mock data for our actual API calls instead of making Ajax requests to Google Books API. To do this, I've changed the `bookApi` in the `stores/book/index.js` to point to the mock API (`./mock-api/api.js`).
+
+the only different in the three tabs, namely "All", "Fiction", "NonFiction", is the data that they'll display. 
+
+Note that the display for all the three tabs ("All", "Fiction" and "NonFiction" tabs) is similar. The layout and format of the items would be the same, and the only difference is the data that they'll display. And since Mobx allows us to keep our data completely separate from the view, we can get rid of the three separate views, and use the same component for all the three tabs. This means that we don't need the three separate tabs anymore. So we'll delete the `book-type-tabs.js` file, and use the `BookListView` component directly in our **TabNavigator** for all three tabs. We'll use the `tabBarOnPress` callback to trigger the call to `setGenre()` in our `BookStore`. The `routeName`, available on the navigation state object, is passed in to `setGenre()` to update the filter when user presses a tab. Here's the updated TabNavigator:
+
+```js
+// src/views/book/index.js
+
+export default observer(
+  createBottomTabNavigator(
+    {
+      All: BookListView,
+      Fiction: BookListView,
+      Nonfiction: BookListView,
+    },
+    {
+      navigationOptions: ({ navigation }) => ({
+        tabBarOnPress: () => {
+          const { routeName } = navigation.state
+          const store = BkStore()
+          store.setGenre(routeName)
+        },
+      }),
+    }
+  )
+)
+```
+
+Note that we're wrapping `createBottomTabNavigator` in MobX `observer`. This is what converts a React component class or stand-alone render function into a reactive component. In our case, we want the filter in our BookStore to change when `tabBarOnPress` is called. 
+
+We'll also change the view to get sortedBooks instead of books.
+
+```js
+// src/views/book/components/BookListView.js
+
+class BookListView extends Component {
+  async componentWillMount() {
+    this.store = BkStore()
+    await this.store.loadBooks()
+  }
+
+  render() {
+    const { routeName } = this.props.navigation.state
+    return (
+      <View>
+        <Title text={`${routeName} Books`} />
+        <BookList books={this.store.sortedBooks} />
+      </View>
+    )
+  }
+}
+```
+
+## Styling our Book List
+
+Our Book list  just lists the name and authors of each book, but we haven't added any styling to it yet. Let's do that using the `ListItem` component from `react-native-elements`. This is simple change:
+
+```js
+// src/views/book/components/Book.js
+
+import { ListItem } from 'react-native-elements'
+
+export default observer(({ book }) => (
+  <ListItem
+    avatar={{ uri: book.image }}
+    title={book.title}
+    subtitle={`by ${book.authors.join(', ')}`}
+  />
+))
+```
+
+And here's what our view looks like now:
+
+![BookList with react-native-elements.png](./BookList with react-native-elements.png)
+
+
+## Add Book Detail
+
+
 
 
 
@@ -410,7 +490,11 @@ Author List View
 The top level component should be a stateful component, so let's do that
 
 ## Book List View
-The only thing different in the three tabs, namely "All Books", "Fiction Books", "NonFiction Books", is the data that they'll display. The layout and format of the items would be the same. And since Mobx allows us to keep our data completely separate from the view. So we can get rid of the three separate views, and have the three tabs displayed using a single stateless component, with different data sets sent via props.
+
+, with different data sets sent via props.
+
+
+
 
 Let's also add a test for the setFilter
 
@@ -426,6 +510,9 @@ Let's also add a test for the setFilter
     return <BookList books={this.store.booksByGenre(filter)} />
   }
 ```
+
+
+
 
 but I find setFilter() more expressive and explicit.
 

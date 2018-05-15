@@ -173,10 +173,11 @@ We'll add in some Authors
 
 github.com/qaiser110/react-native-mobx-starter/commit/7e5ef8c6dd12c64b9721a4e17050ed9c60c835c6
 
-Stack Navigation
+## Stack Navigation
+
 We'll need a top bar on Author View and Book View, and a menu icon to open the drawer. So for both the views, instead of returning a ReactNative View, we'll return a StackNavigator instead.
 
-All Books View and books data
+## All Books View and books data
 
 We'll need data
 a view for displaying a list of all books
