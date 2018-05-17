@@ -462,62 +462,82 @@ And here's what our view looks like now:
 
 ## Add Book Detail
 
-
-
-
-
-
-Now make a change in "src/views/author/store.js". 
-
-[jest test mobx-store](img/react-native/jest-mobx-store-test.png)
-
-Press "a",
-
-[jest run all tests](img/react-native/jest-mobx-store-test-2.png)
-
-Now if you want to run tests for just the books module, press "p" followed by "book". Jest will filter the tests based on regex pattern on the file paths and list the files matching the pattern. Hit "Enter" to run all the tests in this file.
-
-[jest test pattern-matching](img/react-native/jest-mobx-store-test-pattern-matching.png.png)
-
-Similarly, you can run tests based on test name pattern matching. For instance, press "p" followed by "book".
-
-[jest run all tests](img/react-native/jest-mobx-store-test-pattern-matching.png-2.png)
-
-Now, we'll need the api to call so we'll move the mock api we created for our tests to a new file, and import it in the test. Rather than referencing that api in all our views and components, we'll make it the default api in our store. That way, once we have the real api ready, we just have to fix the api file reference in the store.
-
-It is important to note that since we're building a small demo app, mocking our api this way is okay, but in a bigger project, we would use proper mocking. Jest provides good mocking capabilities, or you can use an external mocking and spying framework such as sinon. For making http calls to a Restful API, I like to use axios, along with its mocking companion, Moxios.
-Author List View
-The top level component should be a stateful component, so let's do that
-
-## Book List View
-
-, with different data sets sent via props.
-
-
-
-
-Let's also add a test for the setFilter
+We'll add a field `selectedBook` to our `BookStore` which will point to the selected Book model. 
 
 ```js
-  render() {
-    const { filter } = this.props
-    this.store.setFilter(filter)
-    return <BookList books={this.store.filteredBooks} />
-  }
-
-  render() {
-    const { filter } = this.props
-    return <BookList books={this.store.booksByGenre(filter)} />
-  }
+  selectedBook: t.maybe(t.reference(Book))
 ```
 
+We're using a MST reference for this. [References in MST stores](https://github.com/mobxjs/mobx-state-tree#references-and-identifiers) xxxx
+                                                                                                 
+We'll also add an action to change this reference:
+
+```js
+const selectBook = book => {
+  self.selectedBook = book
+}
+```
+
+When a user taps on a book in the `BookListView`, we want to navigate the user to the `BookDetail` screen. So we'll create a `showBookDetail` function for this, and pass it as props to the child components: 
+
+```js
+// src/views/book/components/BookListView.js
+const showBookDetail = book => {
+  this.store.selectBook(book)
+  this.props.navigation.navigate('BookDetail')
+}
+```
+
+In the `Book` component, we call the above `showBookDetail` function on `onPress` event on the Book `ListItem`:
+
+```js
+// src/views/book/components/Book.js
+
+onPress={() => showBookDetail(book)}
+```
+
+Previously, we only had tabs, but now, we want to show the detail when the user taps on a book. So we'll export a `createStackNavigator` instead of exporting `createBottomTabNavigator` directly. The `createStackNavigator` will have two screens on the stack, the `BookList` and the `BookDetail` screen:
+
+```js
+// src/views/book/index.js
+export default createStackNavigator({
+  BookList: BookListTabs,
+  BookDetail: BookDetailView,
+})
+```
+
+Let's now create the `BookDetailView` that will be displayed on pressing a book:
+
+```js
+// src/views/book/components/BookDetailView.js
+
+export default observer(() => {
+  const store = BkStore()
+  const book = store.selectedBook
+
+  return (
+    <View>
+      <View>
+        <Card title={book.title}>
+          <View>
+            <Image
+              resizeMode="cover"
+              style={{ width: '60%', height: 300 }}
+              source={{ uri: book.image }}
+            />
+            <Text>Title: {book.title}</Text>
+            <Text>Genre: {book.genre}</Text>
+            <Text>No of pages: {book.pageCount}</Text>
+            <Text>Authors: {book.authors.join(', ')}</Text>
+            <Text>Published by: {book.publisher}</Text>
+          </View>
+        </Card>
+      </View>
+    </View>
+  )
+})
+```
+
+If we run our app now, and tap on a book, the Book screen will be displayed with the Book details.
 
 
-
-but I find setFilter() more expressive and explicit.
-
-I've refactored our codebase a bit. I've `moved all-books.js`, `fiction-books.js`, `non-fiction-books.js` into the tabs folder. I've also moved BookList and Book into separate files, to better prepare ourselves for the changes to come. Our BookList and Book components will grow in size as we'll be adding a UI Framework to make our views look pretty. This brings me to two important practices, small component size and code refactor.
-
-It's important to note that refactoring should be a major part of the development workflow. We should continuously refactor our code to prepare ourselves for future changes and challenges. This greatly impacts the development productivity in the long run. 
-
-Our store could also be moved into a separate directory, but since our app is quite small, we don't need to do that.

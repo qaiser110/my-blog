@@ -97,6 +97,8 @@ Let's create a src directory, where we'll keep all our source files, and inside 
 Create index.js files within each of the two directories we just added. These files will export the components for each of our views. Move the code from App.js for the BookView and AuthorView components into these files, and import them instead.
 
 
+It's important to note that refactoring should be a big part of the development workflow. We should continuously refactor our code to prepare ourselves for future changes and challenges. This has a big impact on productivity and change management in the long run. 
+
 Our app should still work as it was before the refactor. Here's a file diff of our recent changes:
 github.com/qaiser110/react-native-mobx-starter/commit/99fbd537de1cefc3723b79fe25394063abe62a3c
 
