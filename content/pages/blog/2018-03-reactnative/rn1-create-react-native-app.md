@@ -2,8 +2,7 @@
 templateKey: blog-post
 path: /react-native-tutorial/create-react-native-app
 series: /react-native-tutorial
-draft: true
-title: 'Creating the ReactNative App using CRNA'
+title: Creating the ReactNative App using CRNA
 date: 2017-01-04T15:04:10.000Z
 description: In this first part pf the series, we'll use the create-react-native-app to create our new React Native project.
 category: programming

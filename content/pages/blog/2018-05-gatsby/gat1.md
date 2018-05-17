@@ -2,7 +2,6 @@
 templateKey: blog-post
 draft: true
 path: /gatsby-tutorial/gatsby-components
-draft: true
 series: /gatsby-tutorial
 title: "Gatsby Components"
 date: 2016-12-17T15:04:10.000Z
