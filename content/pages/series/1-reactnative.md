@@ -26,9 +26,9 @@ In this series, we'll build a mobile application in ReactNative, and also explor
 
 There are five parts in this series. We'll cover different parts for a full blown React Native application: 
 
-1. In [part I](/react-native-tutorial/create-react-native-app-setup), we'll create React Native application using create-react-native-app CLI (CRNA)
+1. In [part I](/react-native-tutorial/create-react-native-app), we'll create React Native application using create-react-native-app CLI (CRNA)
 2. In [part II](/react-native-tutorial/prettier-eslint-airbnb-styleguide), we'll setup prettier, eslint, and arirbnb style guide
 3. In [part III](/react-native-tutorial/drawer-navigation-tabs-with-react-navigation), we'll add Drawer and Tabs Navigation using react-navigation
-4. In [part IV](), we'll add a mobx store for the state management of our app
-5. Add 
+4. In [part IV](/react-native-tutorial/testing-with-jest-enzyme), we'll test our React components with Jest and Enzyme
+5. In [part IV](/react-native-tutorial/mobx-state-tree), we'll handle the state management of our app using MobX (mobx-state-tree) 
 

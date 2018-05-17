@@ -1,6 +1,6 @@
 ---
 templateKey: blog-post
-path: /react-native-tutorial/prettier-eslint-airbnb-styleguide-setup
+path: /react-native-tutorial/prettier-eslint-airbnb-styleguide
 series: /react-native-tutorial
 cover: /img/products-grid1.jpg
 title: Setup prettier, eslint, and airbnb style guide

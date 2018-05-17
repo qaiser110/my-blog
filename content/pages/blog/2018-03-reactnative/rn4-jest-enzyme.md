@@ -1,7 +1,7 @@
 ---
 templateKey: blog-post
 draft: true
-path: /react-native-tutorial/drawer-navigation-with-react-navigation
+path: /react-native-tutorial/testing-with-jest-enzyme
 series: /react-native-tutorial
 cover: /img/products-grid1.jpg
 title: Drawer and Tabs Navigation using react-navigation

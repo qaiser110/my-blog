@@ -8,7 +8,7 @@ import Link from 'gatsby-link'
 const Navbar = () => (
   <header className="header">
     <Link to="/" className="logo">
-      CSS Nav
+      Qaiser Abbas
     </Link>
     <input className="menu-btn" type="checkbox" id="menu-btn" value="off" />
     <label className="menu-icon" htmlFor="menu-btn">

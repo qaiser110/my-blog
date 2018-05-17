@@ -1,7 +1,7 @@
 ---
 templateKey: blog-post
 draft: true
-path: /react-native-tutorial/drawer-navigation-with-react-navigation
+path: /react-native-tutorial/mobx-state-tree
 series: /react-native-tutorial
 cover: /img/products-grid1.jpg
 title: Mobx Store
