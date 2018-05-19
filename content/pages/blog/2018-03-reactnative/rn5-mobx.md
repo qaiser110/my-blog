@@ -3,7 +3,7 @@ templateKey: blog-post
 draft: true
 path: /react-native-tutorial/mobx-state-tree
 series: /react-native-tutorial
-cover: /img/products-grid1.jpg
+cover: /img/ReactNativeLogo.png
 title: Mobx Store
 date: 2017-01-04T15:04:10.000Z
 description: In this tutorial, .
@@ -16,6 +16,13 @@ hashtags:
     - mobx
     - unit-testing
 ---
+In case you're not following the [full series](), you can clone the tutorial series and checkout the first part by running these commands:
+
+```
+git clone https://github.com/qaiser110/ReactNative-Bookstore-App-Tutorial.git bookstore-app
+cd bookstore-app
+git checkout 3-jest-enzyme-testing
+```
 
 ## MobX or Redux for state management
 
@@ -190,11 +197,7 @@ If you run `npm start` now, you should see a list of books fetched by the Google
 
 ![MobX store in ReactNative - fetch data from Google Books API](data-fetch-from-Google-Books-API.png)
 
-Here's the diff for our changes so far for Jest and Enzyme test, including the snapshot.
-
-xxxxxxx
-
-
+Here's the <a href="https://github.com/qaiser110/ReactNative-Bookstore-App-Tutorial/commit/ad23749ed9ed8ba157fade215ce20df0c2312ede" target="_blank">diff for our changes so far</a>.
 
 
 ## Adding tests for our MST BookStore
@@ -330,6 +333,8 @@ it(`filter is NOT set when setGenre() is called with an invalid filter value`, a
 
 And this test should also pass. This is because we're using an ENUM type in our MST store, and the only allowed values are `All`, `Fiction`, and `Nonfiction`.
 
+Here's the <a href="https://github.com/qaiser110/ReactNative-Bookstore-App-Tutorial/commit/925920c430a3449b9e1010b11d1d662c8e88ac6a" target="_blank">diff of our recent changes</a>.
+
 ### Sorting and filtering the books
 
 The first index value in `categories` field of the mock data is categorising the book as **Fiction** or **Nonfiction**. We will use it to filter the books for our **Fiction** and **Nonfiction** tabs respectively.
@@ -356,8 +361,18 @@ get sortedBooks() {
 
 And with this change, we should be in the green again.
 
-The way views in MST stores work is, xxxxx
-Views are basically computeed functions in MobX and provide the Reactive  
+### About MST Views
+
+We just added the `sortedBooks` view in our `BookStore` model. To understand how MST Views work, we'll have to understand MobX. The key concept behin MobX is: anything that can be derived from the application state, should be derived, automatically. In [this egghead.io video](https://egghead.io/lessons/javascript-derive-computed-values-and-manage-side-effects-with-mobx-reactions), the MobX creator [Michel Weststrate](https://twitter.com/mweststrate) has explained the key concepts behind MobX. I'll quote a key concept here:
+
+> MobX is built around four core concepts. Actions, observable state, computed values, and reactions... Find the smallest amount of state you need, and derive all the other things... 
+
+The computed values should be pure functions in terms of depending only on observable values or other computed values, they should have no side effects. Computed properties are lazily evaluated, their value is evaluated only when their value is requested. The computed values are also cached in MobX, and this cached value is returned when this computed property is accessed. When there's a change in any of the observable values being used in it, the Computed property is recomputed.
+
+[MST Views](https://github.com/mobxjs/mobx-state-tree#views) are derived from the current observable state. Views can be with or without arguments. Views without arguments are basically [Computed values](https://mobx.js.org/refguide/computed-decorator.html) from MobX, defined using getter functions. When an observable value is changed from an MST action, the affected view gets recomputed, triggering a change (reaction) in the `@observer` components.  
+
+
+## Adding tests for genre filter
 
 We know that there are 7 Nonfiction books in the mock data. Let's now add a test for filtering by `genre`:
 
@@ -380,6 +395,8 @@ get sortedBooks() {
 ```
 
 And again, all tests are passing.
+
+Here's the <a href="https://github.com/qaiser110/ReactNative-Bookstore-App-Tutorial/commit/620be74af6c5bbf119478405388c8bf978d85586" target="_blank">diff of our recent changes</a>.
 
 ## Update the UI on tab change
 
@@ -459,6 +476,7 @@ And here's what our view looks like now:
 
 ![BookList with react-native-elements.png](./BookList with react-native-elements.png)
 
+Here's the <a href="https://github.com/qaiser110/ReactNative-Bookstore-App-Tutorial/commit/b3ec126149833056e4e417218eca2e674b3b272d" target="_blank">diff of our recent changes</a>.
 
 ## Add Book Detail
 
@@ -468,8 +486,8 @@ We'll add a field `selectedBook` to our `BookStore` which will point to the sele
   selectedBook: t.maybe(t.reference(Book))
 ```
 
-We're using a MST reference for this. [References in MST stores](https://github.com/mobxjs/mobx-state-tree#references-and-identifiers) xxxx
-                                                                                                 
+We're using a MST reference for our `selectedBook` observable. [References in MST stores](https://github.com/mobxjs/mobx-state-tree#references-and-identifiers) make it easy to make references to data and interact with it, while keeping the data normalized in the background.
+
 We'll also add an action to change this reference:
 
 ```js
@@ -494,16 +512,6 @@ In the `Book` component, we call the above `showBookDetail` function on `onPress
 // src/views/book/components/Book.js
 
 onPress={() => showBookDetail(book)}
-```
-
-Previously, we only had tabs, but now, we want to show the detail when the user taps on a book. So we'll export a `createStackNavigator` instead of exporting `createBottomTabNavigator` directly. The `createStackNavigator` will have two screens on the stack, the `BookList` and the `BookDetail` screen:
-
-```js
-// src/views/book/index.js
-export default createStackNavigator({
-  BookList: BookListTabs,
-  BookDetail: BookDetailView,
-})
 ```
 
 Let's now create the `BookDetailView` that will be displayed on pressing a book:
@@ -538,6 +546,68 @@ export default observer(() => {
 })
 ```
 
-If we run our app now, and tap on a book, the Book screen will be displayed with the Book details.
+Previously, we only had tabs, but now, we want to show the detail when the user taps on a book. So we'll export a `createStackNavigator` instead of exporting `createBottomTabNavigator` directly. The `createStackNavigator` will have two screens on the stack, the `BookList` and the `BookDetail` screen:
 
+```js
+// src/views/book/index.js
+export default createStackNavigator({
+  BookList: BookListTabs,
+  BookDetail: BookDetailView,
+})
+```
 
+Note that we're having the List view and the Detail view inside the `createStackNavigator`. This is because we want to share the the same `BookDetailView` only with different content (filtered books). If, on the other hand, we wanted a different detail view showing up from different tabs, then we would have created two separate StackNavigators, and included them inside a TabNavigator, something like this:
+
+```js
+const TabStackA = createStackNavigator({
+  Main: MainScreen,
+  Detail: DetailScreen,
+});
+
+const TabStackB = createStackNavigator({
+  Main: MainScreen,
+  Detail: DetailScreen,
+});
+
+export default createBottomTabNavigator(
+  {
+    TabA: TabStackA,
+    TabB: TabStackB,
+  }
+)
+``` 
+
+Here's the <a href="https://github.com/qaiser110/ReactNative-Bookstore-App-Tutorial/commit/0a40ffd056eb160e07e24a0dd83ada953776c703" target="_blank">diff of our recent changes</a>.
+
+## Styling the tabs
+
+Our tab labels look a bit small, and are hitting the bottom of the screen. Let's fix that by increasing the `fontSize` and adding some `padding`:
+
+```js
+// src/views/book/index.js
+
+const BookListTabs = observer(
+  createBottomTabNavigator(
+    {
+      All: BookListView,
+      Fiction: BookListView,
+      Nonfiction: BookListView,
+    },
+    {
+      navigationOptions: ({ navigation }) => ({
+        // ...
+      }),
+      tabBarOptions: {
+        labelStyle: {
+          fontSize: 16,
+          padding: 10,
+        },
+      },
+    }
+  )
+)
+```
+
+Let's run our app, tap on a book, and the Book detail screen should be displayed with the book details.
+
+And this concludes our series on creating ReactNative application with MobX store. Please feel free to give feedback on the tutorial, and anything that I might have missed or you would like me to add.

@@ -2,7 +2,7 @@
 templateKey: blog-post
 path: /react-native-tutorial/drawer-navigation-tabs-with-react-navigation
 series: /react-native-tutorial
-cover: /img/products-grid1.jpg
+cover: /img/ReactNativeLogo.png
 title: Drawer and Tabs Navigation using react-navigation
 date: 2017-01-04T15:04:10.000Z
 description: In this tutorial, we'll add Drawer and Tabs Navigation using react-navigation.
@@ -15,7 +15,15 @@ hashtags:
     - eslint
     - unit-testing
 ---
-Our app will contain a navigation drawer with two menu options, the first option would be for the BookView, containing the list of books. The other option would be for the AuthorView, containing the list of authors. For navigation between the different views, we'll use [React Navigation](https://reactnavigation.org/docs/en/hello-react-navigation.html). So let's install it:
+In case you haven't followed the [first part](/react-native-tutorial/prettier-eslint-airbnb-styleguide) of the series, you can clone the tutorial series and checkout the first part by running these commands:
+
+```
+git clone https://github.com/qaiser110/ReactNative-Bookstore-App-Tutorial.git bookstore-app
+cd bookstore-app
+git checkout 1-prettier-eslint-airbnb-styleguide-setup
+```
+
+Our Bookstore app will contain a navigation drawer with two menu options. The first menu item for the **AuthorsScreen**, containing the list of authors. The second menu item for the **BooksScreen**, containing the list of books. Tapping on a book will take the user to the BookDetail Screen For navigation between the different views, we'll use [React Navigation](https://reactnavigation.org/docs/en/hello-react-navigation.html) to add navigation to our app. So let's install it first:
 
 ```
 npm install --save react-navigation
@@ -23,7 +31,7 @@ npm install --save react-navigation
 
 ## createStackNavigator
 
-Our ReactNative app will contain two modules, an Author module allowing the users to browse list of authors, and a Books module, containing the list of books. Author and Book module will be implemented using the StackNavigator from [React Navigation](https://reactnavigation.org). Think of StackNavigator as the history stack of web browser. When the user clicks on a link, the URL is pushed to the browser history stack, and removed from the top of the history stack when the user presses the back button. 
+Our ReactNative app will contain two modules, an Author module allowing the users to browse list of authors, and a Books module, containing the list of books. Author and Book module will be implemented using the StackNavigator from [React Navigation](https://reactnavigation.org). Think of StackNavigator as the history stack in a web browser. When the user clicks on a link, the URL is pushed to the browser history stack, and removed from the top of the history stack when the user presses the back button. 
 
 ```js
 export const BookStack = createStackNavigator({
@@ -74,8 +82,7 @@ const App = createDrawerNavigator({
 })
 ```
 
-Here's a diff of our latest changes:
-xxxx
+Here's a <a href="https://github.com/qaiser110/ReactNative-Bookstore-App-Tutorial/tree/1-prettier-eslint-airbnb-styleguide-setup" target="_blank">diff of our latest changes</a>.
 
 In the file App.js, we've made the following changes:
 
@@ -99,13 +106,9 @@ Create index.js files within each of the two directories we just added. These fi
 
 It's important to note that refactoring should be a big part of the development workflow. We should continuously refactor our code to prepare ourselves for future changes and challenges. This has a big impact on productivity and change management in the long run. 
 
-Our app should still work as it was before the refactor. Here's a file diff of our recent changes:
-github.com/qaiser110/react-native-mobx-starter/commit/99fbd537de1cefc3723b79fe25394063abe62a3c
+Our app should still work as it was before the refactor. Here's the <a href="https://github.com/qaiser110/ReactNative-Bookstore-App-Tutorial/commit/d0377da1c3797e2dd9a35237533ae5815af1b582" target="_blank">file diff of our recent changes</a>.
 
-Each of the screen will have a title, which means that we'd be duplicating the same code along with the styles. To keep our code DRY, let's move the title to a separate file "src/components/Title.js", and reuse it where needed. We'll also move the main views into a new parent directory "src/views" to keep them separate from other components.
-
-Here's a file diff of our recent changes:
-github.com/qaiser110/react-native-mobx-starter/commit/578f9bbcd2e946ca52e579c160aa17b0917947d8
+Each of the screen will have a title, which means that we'd be duplicating the same code along with the styles. To keep our code DRY, let's move the title to a separate file `src/components/Title.js`, and reuse it where needed. We'll also move the main views into a new parent directory `src/views` to keep them separate from other components.
 
 ## Tab Navigation
 
@@ -165,23 +168,20 @@ export default ({ navigation }) => (
 
 Now, when we open the Books menu from the drawer, we're able to switch tabs by clicking on the tabs at the bottom.
 
-With those changes we have our apps navigations all done. 
+With those changes we have our apps navigations all done. Here's the <a href="https://github.com/qaiser110/ReactNative-Bookstore-App-Tutorial/commit/007ec23b049f45bf38279c39e22f32db894f16a7" target="_blank">diff for our recent changes</a>.
 
-## Authors List using react-native-elements
+## React Native Elements
 
-yarn add react-native-elements
+There are several UI component libraries for adding React Native components with style. Some of the more poular ones are [React Native Elements](https://react-native-training.github.io/react-native-elements/) [NativeBase](https://nativebase.io/), and [Ignite](https://infinite.red/ignite). We'll be using React Native Elements for our Bookstore app. So let's first install react-native-elements:
 
-We'll add in some Authors
+```
+npm install --save react-native-elements
+```
 
-github.com/qaiser110/react-native-mobx-starter/commit/7e5ef8c6dd12c64b9721a4e17050ed9c60c835c6
+### Authors List using react-native-elements
 
-## Stack Navigation
+Let's use the **ListItem** component from React Native Elements to add a list of authors in our Author screen. 
 
-We'll need a top bar on Author View and Book View, and a menu icon to open the drawer. So for both the views, instead of returning a ReactNative View, we'll return a StackNavigator instead.
+For Author List, we'll use the data and code from the [ListItem](https://react-native-training.github.io/react-native-elements/docs/listitem.html) demo. We'll revisit **ListItem** into more detail when we implement the Book List screen.
 
-## All Books View and books data
-
-We'll need data
-a view for displaying a list of all books
-
-I've also removed all the content from the book tabs, since we'll be adding the actual content there shortly.
+Here's the <a href="https://github.com/qaiser110/ReactNative-Bookstore-App-Tutorial/commit/11435b4c79ba718f4f8d4d12fe0b28ef707e4d1c" target="_blank">diff for our recent changes</a>.

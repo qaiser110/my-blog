@@ -2,7 +2,7 @@
 templateKey: blog-post
 path: /react-native-tutorial/prettier-eslint-airbnb-styleguide
 series: /react-native-tutorial
-cover: /img/products-grid1.jpg
+cover: /img/ReactNativeLogo.png
 title: Setup prettier, eslint, and airbnb style guide
 date: 2017-01-04T15:04:10.000Z
 description: In this tutorial, we'll setup prettier, eslint, and arirbnb style guide to make sure our code not only looks pretty, but also runs code linting.
@@ -15,9 +15,19 @@ hashtags:
     - eslint
     - arirbnb
 ---
-## Why is linting tool important
+If you don't have the project initialized, you can either follow the instructions in the [series intro](/react-native-tutorial) to initialize our CRNA project. Otherwise, just run these few commands to get started:
 
-JavaScript is a dynamic language, and lacks the type system. Consequently, there is not the kind of static analysis tools support that many other languages like Java and C# have to offer, and there's more chance of introducing defects related to data types, especially for novice developers. Since it's not a compiled language, error are discovered when the JavaScript code is executed at runtime. TypeScript and flow help reduce these kind of errors by adding type system to JavaScript, but we won't be going into either of these tools in this tutorial. On the other hand, there are linting tools like ESLint available allow developers to discover problems with their JavaScript code before it is executed through static analysis.
+```sh
+npm install -g create-react-native-app
+create-react-native-app bookstore-app
+cd bookstore-app
+npm start
+```
+
+## Why linting tool
+
+JavaScript is a dynamic language, and doesn't have static type system unlike languages such as C++ and Java. Because of this dynamic nature, JavaScript lacked the kind of tools available for static analysis in many other languages like Java and C# have to offer. Consequently, this caused hard to find bugs related to data types, and required more effort in debugging and troubleshooting these issues, especially for an inexperienced JavaScript developers. Since it's not a compiled language, error are discovered when the JavaScript code is executed at runtime. There are tools like TypeScript and flow that help catching these kind of errors by adding static type system to JavaScript, but we won't be going into either of these tools in this tutorial. On the other hand, there are linting tools like ESLint available that perform static analysis of the JavaScript code based on configurable rules, and highlight the problems in code that may be potential bugs, helping the developers discover problems in their code before it is executed.
+
 
 ## Install and Setup ESLint
 
@@ -45,14 +55,14 @@ At the time of this writing, these are the versions shown in the output from the
 So let's install these specific dependencies versions by running this command:
 
 ```sh
-yarn add -D eslint@^4.9.0 eslint-plugin-import@^2.7.0 eslint-plugin-jsx-a11y@^6.0.2 eslint-plugin-react@^7.4.0
+npm install -D eslint@^4.9.0 eslint-plugin-import@^2.7.0 eslint-plugin-jsx-a11y@^6.0.2 eslint-plugin-react@^7.4.0
 ```
 
 This would install the necessary dependencies and generate the `.eslintrc.js` file in the project root directory. The .eslintrc.js file should have the following configurations:
 
 ```js
 module.exports = {
-    "extends": "airbnb"
+  "extends": "airbnb"
 };
 ```
 
@@ -69,7 +79,7 @@ Now, there may be conflicts between the ESLint rules and the code formatting don
 Let's install all the necessary packages, prettier and eslint-plugin-prettier. We'll also need to install eslint-config-airbnb for this:
 
 ```sh
-yarn add -D prettier prettier-eslint eslint-plugin-prettier eslint-config-prettier eslint-config-airbnb
+npm install -D prettier prettier-eslint eslint-plugin-prettier eslint-config-prettier eslint-config-airbnb
 ```
 
 NOTE: If ESLint is installed globally, then make sure eslint-plugin-prettier is also installed globally. A globally-installed ESLint cannot find a locally-installed plugin.
@@ -178,6 +188,6 @@ module.exports = {
 }
 ```
 
-I know this was a lot of work, considering that we haven't even started working on our app yet, but trust me this setup would be very beneficial in the long run, even if you're a one person team, and when you're working with other developers, linting and programming standards will go a long way in reducing code defects and ensuring consistency in code style.
+I know this was a lot of work, considering that we haven't even started working on our app yet, but trust me, this setup would be very beneficial for your projects in the long run, even if you're a one person team, and when you're working with other developers, linting and programming standards will go a long way in reducing code defects and ensuring consistency in code style.
 
-You can find the changes made in this part at <a href="https://github.com/qaiser110/ReactNative-Bookstore-App-Tutorial/tree/1-prettier-eslint-airbnb-styleguide-setup" target="_blank">this branch</a> of the tutorial repository. 
+You can find the changes made in this part in <a href="https://github.com/qaiser110/ReactNative-Bookstore-App-Tutorial/tree/1-prettier-eslint-airbnb-styleguide-setup" target="_blank">this branch</a> of the tutorial repository. 
