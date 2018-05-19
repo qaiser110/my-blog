@@ -45,9 +45,9 @@ There are four parts in this series. We'll cover different topics and libraries 
 
 Here's a demo of the app we're going to build:
 
-[ReactNative BookList App](react-native_BookList_final-app.gif)
+![ReactNative BookList App](react-native_BookList_final-app.gif)
 
-### What's not Covered
+### What we won't Covered
 
 There are a few things we won't cover in this series, which you may want to consider in your project:
 
