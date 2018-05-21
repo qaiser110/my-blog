@@ -4,16 +4,19 @@ path: /react-native-tutorial/testing-with-jest-enzyme
 series: /react-native-tutorial
 cover: /img/ReactNativeLogo.png
 title: Drawer and Tabs Navigation using react-navigation
-date: 2017-01-04T15:04:10.000Z
+date: 2018-05-15T15:04:10.000Z
 description: In this tutorial, .
 category: programming
 tags:
-    - eslint
+    - jest
     - react-native
     - unit-testing
 hashtags:
-    - eslint
-    - unit-testing
+    - Jest
+    - Testing
+    - ReactNative
+    - React
+    - JavaScript
 ---
 In case you haven't followed the [first](/react-native-tutorial/prettier-eslint-airbnb-styleguide) and [second](/react-native-tutorial/drawer-navigation-tabs-with-react-navigation) part of the series, you can clone the tutorial series and checkout the first part by running these commands:
 

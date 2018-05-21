@@ -12,6 +12,10 @@ const tagInfo = {
     title: 'MobX',
     score: 5,
   },
+  jest: {
+    title: 'Jest',
+    score: 5,
+  },
   'unit-testing': {
     title: 'Unit Testing',
     score: 5,

@@ -4,7 +4,7 @@ path: /react-native-tutorial
 series: /react-native-tutorial
 cover: /img/ReactNativeLogo.png
 title: Building a Mobile Application in ReactNative
-date: 2017-12-17T15:04:10.000Z
+date: 2018-05-02T15:04:10.000Z
 description: This is an intro to building mobile apps in ReactNative. It covers state management in Mobx, code styling and linting tools (prettier, eslint, and arirbnb style guide), and testing the app via jest and enzyme.
 chapters:
     - /react-native-tutorial/prettier-eslint-airbnb-styleguide
@@ -20,6 +20,8 @@ hashtags:
     - CRNA
     - ReactNative
     - MobX
+    - eslint
+    - prettier
     - JavaScript
 ---
 

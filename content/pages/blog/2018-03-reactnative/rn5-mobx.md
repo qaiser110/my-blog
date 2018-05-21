@@ -4,7 +4,7 @@ path: /react-native-tutorial/mobx-state-tree
 series: /react-native-tutorial
 cover: /img/ReactNativeLogo.png
 title: Mobx Store
-date: 2017-01-04T15:04:10.000Z
+date: 2018-05-20T15:04:10.000Z
 description: In this tutorial, .
 category: programming
 tags:
@@ -12,8 +12,12 @@ tags:
     - react-native
     - unit-testing
 hashtags:
-    - mobx
-    - unit-testing
+    - MobX
+    - Jest
+    - Testing
+    - ReactNative
+    - React
+    - JavaScript
 ---
 In case you're not following the [full series](/react-native-tutorial), you can clone the tutorial series and checkout the first part by running these commands:
 

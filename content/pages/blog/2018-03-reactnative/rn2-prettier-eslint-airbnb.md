@@ -4,7 +4,7 @@ path: /react-native-tutorial/prettier-eslint-airbnb-styleguide
 series: /react-native-tutorial
 cover: /img/ReactNativeLogo.png
 title: Setup prettier, eslint, and airbnb style guide
-date: 2017-01-04T15:04:10.000Z
+date: 2018-05-03T15:04:10.000Z
 description: In this tutorial, we'll setup prettier, eslint, and arirbnb style guide to make sure our code not only looks pretty, but also runs code linting.
 category: programming
 tags:
@@ -13,7 +13,9 @@ tags:
 hashtags:
     - prettier
     - eslint
-    - arirbnb
+    - ReactNative
+    - React
+    - JavaScript
 ---
 If you don't have the project initialized, you can either follow the instructions in the [series intro](/react-native-tutorial) to initialize our CRNA project. Otherwise, just run these few commands to get started:
 
