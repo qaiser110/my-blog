@@ -1,6 +1,5 @@
 ---
 templateKey: blog-post
-draft: true
 path: /react-native-tutorial/mobx-state-tree
 series: /react-native-tutorial
 cover: /img/ReactNativeLogo.png
@@ -16,7 +15,7 @@ hashtags:
     - mobx
     - unit-testing
 ---
-In case you're not following the [full series](), you can clone the tutorial series and checkout the first part by running these commands:
+In case you're not following the [full series](/react-native-tutorial), you can clone the tutorial series and checkout the first part by running these commands:
 
 ```
 git clone https://github.com/qaiser110/ReactNative-Bookstore-App-Tutorial.git bookstore-app

@@ -15,18 +15,22 @@ const Navbar = () => (
       <span className="navicon" />
     </label>
     <ul className="menu">
+{/*
       <li>
         <Link to="/about">About</Link>
       </li>
+*/}
       <li>
         <Link to="/series/">Series</Link>
       </li>
       <li>
         <Link to="/categories">Categories</Link>
       </li>
+{/*
       <li>
-        <a href="#contact">Contact</a>
+        <a href="/">Contact</a>
       </li>
+*/}
     </ul>
   </header>
 )

@@ -14,12 +14,12 @@ class Footer extends Component {
           <div className="item" style={{flex: 2}}>
             <h4>About me</h4>
             <p>
-              I'm a Software Architect, Automation Specialist, and a Full-Stack Developer. I help teams build quality software by applying good development, automation, and testing practices.
+              I'm a Full-Stack Developer and Automation Engineer. I help teams build quality software, applying good development, automation, and testing practices and tools.
             </p>
           </div>
           <div className="item" style={{flex: 2}}>
             <h4>Favorites</h4>
-            <p>I love working with React, Node, ReactNative, Automation, Software Quality, Code Quality</p>
+            <p>I love working on Node, React, and ReactNative. I also like to work on Software and Code Quality, and enjoy all kinds of Automation and tools for testing applications.</p>
           </div>
           <div className="item" style={{flex: 1}}>
             <div className="contact">

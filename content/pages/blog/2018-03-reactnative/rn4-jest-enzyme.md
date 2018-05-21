@@ -1,6 +1,5 @@
 ---
 templateKey: blog-post
-draft: true
 path: /react-native-tutorial/testing-with-jest-enzyme
 series: /react-native-tutorial
 cover: /img/ReactNativeLogo.png
