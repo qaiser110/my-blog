@@ -8,6 +8,10 @@ const tagInfo = {
     title: 'ESLint',
     score: 5,
   },
+  mobx: {
+    title: 'MobX',
+    score: 5,
+  },
   'unit-testing': {
     title: 'Unit Testing',
     score: 5,

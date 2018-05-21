@@ -21,8 +21,6 @@ export const BlogPostTemplate = ({
   helmet,
 }) => {
   const PostContent = contentComponent || Content
-  console.log('----post.frontmatter---');
-  console.log(post.frontmatter);
   const { path, title, description, cover, category, tags } = post.frontmatter
   const smallImage = imageSharp.sizes.srcSet.split(' ')[0]
   const isSeries = series && series.chapters && series.chapters.length > 0
@@ -76,8 +74,7 @@ export default ({ data }) => {
           : chapterNodes.push(ch.node.frontmatter)
     )
   }
-  console.log('----chapterNodes---')
-  console.log(chapterNodes)
+
   return (
     <BlogPostTemplate
       imageSharp={imageSharp}
