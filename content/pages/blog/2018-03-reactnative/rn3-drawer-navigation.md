@@ -148,13 +148,12 @@ const styles = StyleSheet.create({
 export default ({ text }) => <Text style={styles.header}>{text}</Text>
 ```
 
-As you'll notice, I've also added styles to the `<Text>` component, importing both `StyleSheet` and `Text` from `react-native`.
+Note that we've also added `style` to the `<Text>` component, importing both `StyleSheet` and `Text` from `react-native`.
 
 We'll add the `Title` to each view component, providing the title `text` in the props. Also, since Authors view just contains a list of authors, we don't need a StackNavigator for it, so we'll change it to a plain React component. Here's what our `src/views/author/index.js` file looks like now:
 
 ```js
-import React from 'react'
-import { View, Button } from 'react-native'
+// src/views/author/index.js
 
 import Title from '../../components/Title'
 

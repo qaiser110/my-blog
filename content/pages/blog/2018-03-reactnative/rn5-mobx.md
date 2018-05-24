@@ -2,8 +2,8 @@
 templateKey: blog-post
 path: /react-native-tutorial/mobx-state-tree
 series: /react-native-tutorial
-cover: /img/ReactNativeLogo.png
-title: Mobx Store
+cover: /img/MobX_ReactNative_ReactNativeElements.png
+title: Managing state with React Navigation and Mobx Store
 date: 2018-05-20T15:04:10.000Z
 description: In this tutorial, .
 category: programming
@@ -276,9 +276,9 @@ npm test src/stores/book/__tests__/index.js
 
 You should see the test pass.
 
-## Test Driven Development
+## Adding books filter via TDD
 
-I believe in a hybrid approach to Test Driven Development. I've come to realize that it works best if you add some basic functionality first when starting a project, or adding a new module or a major functionality from scratch. Once the basic setup and structure is implemented, then TDD works really well. But I do believe that TDD is the best way to approach a problem space in code. It not only forces you to have better code quality and design, but also ensures that you have atomic unit tests, that your unit tests are more focused on testing specific functionality, rather than stuffing too many assertions in a test. 
+I believe in a hybrid approach to Test Driven Development. In my experience, it works best if you add some basic functionality first when starting a project, or when you're adding a new module or a major functionality from scratch. Once the basic setup and structure is implemented, then TDD works really well. But I do believe that TDD is the best way to approach a problem space in code. It not only forces you to have better code quality and design, but also ensures that you have atomic unit tests, that your unit tests are more focused on testing specific functionality, rather than stuffing too many assertions in a test. 
  
 Before we start adding our test and make changes to our store, I'll change the delay in our mock API to 300 millisecs to ensure taht our tests run faster. 
 

@@ -3,7 +3,7 @@ templateKey: blog-post
 path: /react-native-tutorial/testing-with-jest-enzyme
 series: /react-native-tutorial
 cover: /img/ReactNativeLogo.png
-title: Drawer and Tabs Navigation using react-navigation
+title: Testing ReactNative components with Jest and Enzyme
 date: 2018-05-15T15:04:10.000Z
 description: In this tutorial, .
 category: programming
