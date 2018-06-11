@@ -5,7 +5,7 @@ series: /react-native-tutorial
 cover: /img/MobX_ReactNative_ReactNativeElements.png
 title: Managing state with React Navigation and Mobx Store
 date: 2018-05-20T15:04:10.000Z
-description: In this tutorial, .
+description: In this part, we'll manage the state of our app using mobx-state-tree.
 category: programming
 tags:
     - mobx

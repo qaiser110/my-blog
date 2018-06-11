@@ -100,7 +100,7 @@ module.exports = {
 }
 ```
 
-[eslint-config-prettier](https://github.com/prettier/eslint-config-prettier also ships with a CLI tool to help you check if your configuration contains any rules that are unnecessary or conflict with Prettier. Let's be proactive and do just that.
+[eslint-config-prettier](https://github.com/prettier/eslint-config-prettier) also ships with a CLI tool to help you check if your configuration contains any rules that are unnecessary or conflict with Prettier. Let's be proactive and do just that.
 
 First, add a script for it to package.json:
 

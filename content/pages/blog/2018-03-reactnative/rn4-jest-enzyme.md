@@ -5,7 +5,7 @@ series: /react-native-tutorial
 cover: /img/ReactNativeLogo.png
 title: Testing ReactNative components with Jest and Enzyme
 date: 2018-05-15T15:04:10.000Z
-description: In this tutorial, .
+description: In this part, we'll add some unit tests using Jest and Enzyme.
 category: programming
 tags:
     - jest
