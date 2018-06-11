@@ -3,7 +3,7 @@ templateKey: blog-post
 path: /react-native-tutorial
 series: /react-native-tutorial
 cover: /img/MobX_ReactNative_State_Management.jpg
-title: Real-world ReactNative apps made easy with RNE, Jest and Mobx MST
+title: Real-world ReactNative apps made easy with RNE, Jest and MobX MST
 date: 2018-05-02T15:04:10.000Z
 description: This is an intro to building mobile apps in ReactNative. It covers state management in Mobx, code styling and linting tools (prettier, eslint, and arirbnb style guide), and testing the app via jest and enzyme.
 chapters:
