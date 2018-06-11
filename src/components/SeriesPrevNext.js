@@ -11,7 +11,7 @@ export default ({ prevPost, nextPost }) =>
           <span className="arrow">{'<<  '}</span> Previous: {prevPost.title}</Link>
       )}
     </i>
-    {prevPost && nextPost && <span className="divider">{'  |  '}</span>}
+    {prevPost && nextPost && <span className="divider">{'   |   '}</span>}
     <i>
       {nextPost && (
         <Link to={nextPost.path}>

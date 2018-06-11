@@ -27,8 +27,6 @@ export const BlogPostTemplate = ({
   const { path, title, description, cover, category, tags } = post.frontmatter
   const smallImage = imageSharp.sizes.srcSet.split(' ')[0]
   const isSeries = series && series.chapters && series.chapters.length > 0
-  console.log('----prevPost, nextPost---')
-  console.log(prevPost, nextPost)
   return (
     <section className="section">
       {helmet || ''}
