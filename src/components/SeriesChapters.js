@@ -21,7 +21,7 @@ export default ({ series, chapterNodes, currPath }) =>
           style={{ textDecoration: 'none' }}
           to={`${series.path}`}
         >
-          <li>{series.title}</li>
+          Introduction to <li>{series.title}</li>
         </Link>
         {chapterNodes.map(
           (chap, key) =>
