@@ -7,6 +7,7 @@ import Content, { HTMLContent } from '../components/Content'
 import { catInfo } from '../../data'
 import PostTags from '../components/PostTags'
 import Chapters from '../components/SeriesChapters'
+import PrevNextPost from '../components/SeriesPrevNext'
 import SEO from '../components/SEO'
 import SocialLinks from '../components/SocialLinks/SocialLinks'
 import config from '../../data/SiteConfig'
@@ -16,6 +17,8 @@ export const BlogPostTemplate = ({
   post,
   series,
   chapterNodes,
+  prevPost,
+  nextPost,
   imageSharp,
   contentComponent,
   helmet,
@@ -24,6 +27,8 @@ export const BlogPostTemplate = ({
   const { path, title, description, cover, category, tags } = post.frontmatter
   const smallImage = imageSharp.sizes.srcSet.split(' ')[0]
   const isSeries = series && series.chapters && series.chapters.length > 0
+  console.log('----prevPost, nextPost---')
+  console.log(prevPost, nextPost)
   return (
     <section className="section">
       {helmet || ''}
@@ -56,6 +61,10 @@ export const BlogPostTemplate = ({
           <SocialLinks postPath={path} postNode={post} />
           <br />
           <PostTags tags={tags} />
+          <PrevNextPost
+            prevPost={prevPost && prevPost.frontmatter}
+            nextPost={nextPost && nextPost.frontmatter}
+          />
         </div>
       </div>
     </section>
@@ -63,7 +72,13 @@ export const BlogPostTemplate = ({
 }
 
 export default ({ data }) => {
-  const { markdownRemark: post, imageSharp, chapters } = data
+  const {
+    markdownRemark: post,
+    imageSharp,
+    chapters,
+    prevPost,
+    nextPost,
+  } = data
   let chapterNodes = []
   let series = null
   if (chapters) {
@@ -82,6 +97,8 @@ export default ({ data }) => {
       series={series}
       chapterNodes={chapterNodes}
       contentComponent={HTMLContent}
+      prevPost={prevPost}
+      nextPost={nextPost}
       helmet={
         <Helmet title={`${post.frontmatter.title} | ${config.siteTitle}`} />
       }
@@ -90,7 +107,13 @@ export default ({ data }) => {
 }
 
 export const pageQuery = graphql`
-  query BlogPostByPath($path: String!, $cover: String!, $series: String!) {
+  query BlogPostByPath(
+    $path: String!
+    $cover: String!
+    $series: String!
+    $prevPost: String!
+    $nextPost: String!
+  ) {
     markdownRemark(frontmatter: { path: { eq: $path } }) {
       html
       frontmatter {
@@ -123,6 +146,18 @@ export const pageQuery = graphql`
             chapters
           }
         }
+      }
+    }
+    prevPost: markdownRemark(frontmatter: { path: { eq: $prevPost } }) {
+      frontmatter {
+        path
+        title
+      }
+    }
+    nextPost: markdownRemark(frontmatter: { path: { eq: $nextPost } }) {
+      frontmatter {
+        path
+        title
       }
     }
   }

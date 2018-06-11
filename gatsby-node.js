@@ -93,7 +93,12 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
     currPage = 1
     const err = []
 
-    result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+    const { edges } = result.data.allMarkdownRemark
+    edges.forEach(({ node }, idx) => {
+      const nextPost = idx !== 0 && edges[idx - 1].node.frontmatter.path
+      const prevPost =
+        idx + 1 !== edges.length && edges[idx + 1].node.frontmatter.path
+
       if (node.frontmatter.category) {
         const cat = node.frontmatter.category
         categorySet.add(cat)
@@ -136,6 +141,8 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
         ),
         context: {
           cover,
+          prevPost,
+          nextPost,
           // path: pagePath,
           series: node.frontmatter.series || '',
         },
@@ -147,7 +154,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
     })
 
     if (err.length > 0) {
-      console.log((`
+      console.log(`
       
 ${JSON.stringify(err)}
 
@@ -155,7 +162,7 @@ Allowed categories are: ${Object.keys(catInfo).join(', ')}
 
 Allowed tags are: ${Object.keys(tagInfo).join(', ')}
 
-      `))
+      `)
       throw new Error()
     }
 

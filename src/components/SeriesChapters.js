@@ -6,17 +6,23 @@ import Link from 'gatsby-link'
 export default ({ series, chapterNodes, currPath }) =>
   currPath === series.path ? null : (
     <aside id="series">
-      This blog post is part of a series on{' '}
+      This post is part of a series on{' '}
       <Link
         to={`${series.path}`}
         className={currPath === series.path ? 'is-active' : ''}
       >
         {series.title}
-      </Link>. Here's the complete list from this series, in case you've missed
-      the previous posts:
+      </Link>. Here's the complete list from this series:
       <br/>
       <br/>
       <ol className="chapters">
+        <Link
+          key='intro'
+          style={{ textDecoration: 'none' }}
+          to={`${series.path}`}
+        >
+          <li>{series.title}</li>
+        </Link>
         {chapterNodes.map(
           (chap, key) =>
             currPath === chap.path ? (
