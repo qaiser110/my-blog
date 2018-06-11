@@ -25,9 +25,16 @@ hashtags:
     - JavaScript
 ---
 
-##Introduction
+In this series, we'll build a real-world mobile application in ReactNative, and also explore some of the development practices and libraries, including directory structure, state management (in Mobx), code styling and linting tools ([Prettier](https://prettier.io/), [ESLint](https://eslint.org/), and [Arirbnb style guide](https://github.com/airbnb/javascript)), user interface in [React Native Elements](https://react-native-training.github.io/react-native-elements/), and an important, but often ignored part - unit-testing your application (via [Jest](https://facebook.github.io/jest/) and [Enzyme](https://github.com/airbnb/enzyme)).
 
-In this series, we'll build a mobile application in ReactNative, and also explore some of the development practices including directory structure, state management (in Mobx) code styling and linting tools (prettier, eslint, and arirbnb style guide), and an important, but often ignored part - unit-testing your application (via jest and enzyme).
+## State Management in React
+
+React and ReactNative have made the building Single Page Applications and Mobile Applications fun and easy, but they only cover the view of the applications. State Management and UI design could still be a painful part of building the app. There are several popular State Management libraries available for React. I've used Redux, Mobx, and RxJS, and while all three of them are good in their own ways, I've enjoyed MobX the most because of its simplicity, elegance and powerful state management.
+
+[Redux](https://redux.js.org/introduction/three-principles), based primarily on the concepts of functional programming and pure functions, tries to solve the complexity of state management by imposing some restrictions on when updates are possible. These restrictions are reflected in three basic principles: a single source of truth, read-only state, and pure functions. You can read more about [these principles in Redux documentation](https://redux.js.org/introduction/three-principles). While I'm a fan of functional programming, I've experienced that you have to deal with a lot of unnecessary boilerplate code when working with Redux. You have to write code for dispatching actions and transforming state yourself in Redux. Mobx, on the other hand, does this job for you, making it easier to maintain and fun to work with. You need the right amount of code and restrictions in MobX to achieve a superior state management and a good developer experience. In Redux, you also have to spend a substantial amount of time in normalizing and de-normalizing your data. In MobX, you don't need to normalize the data, and MobX automatically tracks the relations between state and derivations. We'll go into this later.
+
+[RxJS](http://reactivex.io/rxjs) reactive programming library for JavaScript. It is different from MobX in that RxJS allows you to react to events while in MobX, you observe the values (or state) and helps you react to changes in state. Although both RxJS and MobX provide the ability to perform reactive programming, they are quite different in their approaches. In RxJS, you have to use different operators, .
+
 
 ## About our App
 
