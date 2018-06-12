@@ -64,7 +64,7 @@ There are a few things we won't cover in this series, which you may want to cons
 2. Although we will add some styles to our app, we won't go into details and the different options available for adding styles in a ReactNative application. The [styled-components](https://github.com/styled-components/styled-components) library is one of the most popular ones for both React and ReactNative applications.
 3. We won't build a separate backend for our application. We will go through integration with the Google Books API, but we'll use mock data for the most part.
 
-Before we continue to the first part of thsi series, we'll initialize our ReactNative app using [CRNA](https://github.com/react-community/create-react-native-app) CLI. So let's get started!
+Before we continue to the first part of this series, we'll initialize our ReactNative app using [CRNA](https://github.com/react-community/create-react-native-app) CLI. So let's get started!
 
 ## Create React Native application using create-react-native-app CLI (CRNA)
 

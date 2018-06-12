@@ -3,7 +3,7 @@ templateKey: blog-post
 path: /react-native-tutorial/prettier-eslint-airbnb-styleguide
 series: /react-native-tutorial
 cover: /img/ReactNativeLogo.png
-title: Setup prettier, eslint, and airbnb style guide
+title: Setup Prettier, ESLint, and Airbnb style guide
 date: 2018-05-03T15:04:10.000Z
 description: In this tutorial, we'll setup prettier, eslint, and arirbnb style guide to make sure our code not only looks pretty, but also runs code linting.
 category: programming

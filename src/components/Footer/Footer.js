@@ -19,7 +19,7 @@ class Footer extends Component {
           </div>
           <div className="item" style={{flex: 2}}>
             <h4>Favorites</h4>
-            <p>I love working on Node, React, improving Code Quality, and all kinds of Automation and tools for testing of applications.</p>
+            <p>I love working on Node, React, ReactNative, improving Code Quality, and all kinds of Automation and tools for testing of applications. I also love functional languages like Elm, Elixir & Clojure.</p>
           </div>
           <div className="item" style={{flex: 1}}>
             <div className="contact">
